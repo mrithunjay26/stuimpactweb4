@@ -518,7 +518,7 @@ export default function Component() {
 								{ name: "Opportunities", href: "/opportunities" },
 								{ name: "Our Team", href: "/team" },
 								{ name: "Partner With Us", href: "/nonprofits" },
-								{ name: "Contact", href: "#contact" },
+								{ name: "Contact", href: "/contact" },
 							].map((item) => (
 								<Link
 									key={item.name}
@@ -557,7 +557,7 @@ export default function Component() {
 									{ name: "Opportunities", href: "/opportunities" },
 									{ name: "Our Team", href: "/team" },
 									{ name: "Partner With Us", href: "/nonprofits" },
-									{ name: "Contact", href: "#contact" },
+									{ name: "Contact", href: "/contact" },
 								].map((item) => (
 									<Link
 										key={item.name}
