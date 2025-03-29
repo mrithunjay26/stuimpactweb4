@@ -1347,7 +1347,7 @@ export default function Component() {
 										}}
 									/>
 									<video
-										src="https://archive.org/embed/ambassadors_202503"
+										src="/ambassadors.mp4"
 										className="w-full h-full object-cover rounded-3xl"
 										autoPlay
 										loop
