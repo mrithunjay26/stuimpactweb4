@@ -1347,7 +1347,7 @@ export default function Component() {
 										}}
 									/>
 									<video
-										src="https://firebasestorage.googleapis.com/v0/b/cledge-51879.appspot.com/o/videoplayback.mp4?alt=media&token=c116e664-e516-4b80-8637-fb4e9e2e1465"
+										src="https://drive.google.com/file/d/1CsRb-3L2ZBvG6nQowRo1zYDxHi7R_MbD/preview"
 										className="w-full h-full object-cover rounded-3xl"
 										autoPlay
 										loop
