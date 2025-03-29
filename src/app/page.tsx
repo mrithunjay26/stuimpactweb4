@@ -1347,7 +1347,7 @@ export default function Component() {
 										}}
 									/>
 									<video
-										src="https://drive.google.com/file/d/1CsRb-3L2ZBvG6nQowRo1zYDxHi7R_MbD/preview"
+										src="https://archive.org/embed/ambassadors_202503"
 										className="w-full h-full object-cover rounded-3xl"
 										autoPlay
 										loop
