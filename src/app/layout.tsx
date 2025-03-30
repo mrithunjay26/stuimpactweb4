@@ -1,5 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: 'StuImpact - Discover Opportunities for Students',
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="canonical" href="https://www.stuimpact.works" />
       </head>
       <body className="bg-background text-white font-sans">{children}</body>
+      <Analytics />
     </html>
   );
 }
