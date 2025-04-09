@@ -673,7 +673,7 @@ export default function OpportunityFinder() {
 
                     <div className="relative rounded-2xl overflow-hidden h-48 mb-6">
                       <Image
-                          src="/placeholder.svg?height=800&width=1200"
+                          src="/1652721200604.png?height=800&width=1200"
                           alt={selectedJob.title}
                           fill
                           className="object-cover"
