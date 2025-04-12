@@ -51,7 +51,7 @@ const teamMembers = [
     {
         name: "Nitin",
         role: "Business Team",
-        image: "/nitin.jfif",
+        image: "/nitin.PNG",
         bio: "Nitin works on scaling business efforts and developing new revenue streams.",
         linkedin: "https://linkedin.com/in/nitin",
         twitter: "https://twitter.com/nitin",
