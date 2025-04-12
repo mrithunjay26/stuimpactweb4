@@ -30,94 +30,103 @@ const GlowingStreak = ({
 const PulsatingCircle = ({ className }: { className?: string }) => (
     <div className={`absolute rounded-full animate-ripple ${className}`} />
 )
-
-// Team members data
-const boardMembers = [
+// Board Members
+const teamMembers = [
     {
-        name: "Mitu",
-        role: "President",
-        image: "/mitu.PNG",
-        bio: "Tells em what to do 😎",
-        linkedin: "https://linkedin.com/in/atharv",
-        twitter: "https://twitter.com/atharv",
+        name: "Jagan Nair",
+        role: "Business Team",
+        image: "/jagan.PNG",
+        bio: "Jagan leads business operations, driving strategic partnerships and funding initiatives.",
+        linkedin: "https://linkedin.com/in/jagan",
+        twitter: "https://twitter.com/jagan",
     },
     {
-        name: "Aasrith",
-        role: "Marketing Lead",
-        image: "/Aasrith.PNG",
-        bio: "Aasrith leads our outreach efforts and manages communication channels, ensuring StuImpact's message reaches far and wide.",
-        linkedin: "https://linkedin.com/in/aasrith",
-        twitter: "https://twitter.com/aasrith",
+        name: "Sudit",
+        role: "Business Team",
+        image: "/sudit.PNG",
+        bio: "Sudit supports organizational growth through market research and outreach.",
+        linkedin: "https://linkedin.com/in/sudit",
+        twitter: "https://twitter.com/sudit",
+    },
+    {
+        name: "Nitin",
+        role: "Business Team",
+        image: "/nitin.jfif",
+        bio: "Nitin works on scaling business efforts and developing new revenue streams.",
+        linkedin: "https://linkedin.com/in/nitin",
+        twitter: "https://twitter.com/nitin",
+    },
+    {
+        name: "Raghav",
+        role: "Business Team",
+        image: "/raghav.PNG",
+        bio: "Raghav focuses on financial planning and business strategy optimization.",
+        linkedin: "https://linkedin.com/in/raghav",
+        twitter: "https://twitter.com/raghav",
+    },
+    {
+        name: "Shaurya",
+        role: "Business Team",
+        image: "/shaurya.PNG",
+        bio: "Shaurya helps lead project management and client engagement strategies.",
+        linkedin: "https://linkedin.com/in/shaurya",
+        twitter: "https://twitter.com/shaurya",
     },
     {
         name: "Tanush",
-        role: "Vice President",
+        role: "Business Team",
         image: "/tanush.PNG",
-        bio: "Tanush oversees the recruitment and training of Student Impact Ambassadors, fostering the next generation of leaders.",
+        bio: "Tanush drives ambassador recruitment and training across chapters.",
         linkedin: "https://linkedin.com/in/tanush",
         twitter: "https://twitter.com/tanush",
     },
     {
         name: "Sai",
-        role: "Vice President",
+        role: "Business Team",
         image: "/sai.jpeg",
-        bio: "Sai facilitates club collaborations and provides ongoing mentorship to our network of student leaders.",
+        bio: "Sai fosters partnerships between clubs and provides mentorship to leaders.",
         linkedin: "https://linkedin.com/in/sai",
         twitter: "https://twitter.com/sai",
     },
-]
+];
+teamMembers
+// Team Members
+const boardMembers = [
+    {
+        name: "Mrithunjay Tanish Shanmuganand",
+        role: "President",
+        image: "/mitu.PNG",
+        bio: "President and mission leader, invigorating staff and team leads forward for our mission",
+        linkedin: "https://linkedin.com/in/sankalp",
+        twitter: "https://twitter.com/sankalp",
+    },
+    {
+        name: "Brian Kearl",
+        role: "Final Tech Team - Supreme Leader",
+        image: "/brian.jpg",
+        bio: "Brian oversees all technical operations, ensuring innovation and scalability across platforms.",
+        linkedin: "https://linkedin.com/in/brian",
+        twitter: "https://twitter.com/brian",
+    },
+    {
+        name: "Sankalp Mudaliar",
+        role: "Final Legal Team - Supreme Leader",
+        image: "/sankalp.png",
+        bio: "Sankalp manages legal compliance, contract negotiations, and risk mitigation strategies.",
+        linkedin: "https://linkedin.com/in/sankalp",
+        twitter: "https://twitter.com/sankalp",
+    },
+    {
+        name: "Aasrith Gnana Arvapalli",
+        role: "Final Legal Team - Supreme Leader",
+        image: "/aasrith.png",
+        bio: "Sankalp manages legal compliance, contract negotiations, and risk mitigation strategies.",
+        linkedin: "https://linkedin.com/in/sankalp",
+        twitter: "https://twitter.com/sankalp",
+    },
 
-// Team members data
-const teamMembers = [
-    {
-        name: "Alex Johnson",
-        role: "Program Coordinator",
-        image: "/placeholder.svg?height=400&width=400",
-        bio: "Alex coordinates our educational programs and ensures they deliver maximum impact for students.",
-        linkedin: "https://linkedin.com/in/alex",
-        twitter: "https://twitter.com/alex",
-    },
-    {
-        name: "Maya Patel",
-        role: "Community Outreach",
-        image: "/placeholder.svg?height=400&width=400",
-        bio: "Maya builds relationships with schools and community organizations to expand our reach.",
-        linkedin: "https://linkedin.com/in/maya",
-        twitter: "https://twitter.com/maya",
-    },
-    {
-        name: "Jamal Williams",
-        role: "Technology Lead",
-        image: "/placeholder.svg?height=400&width=400",
-        bio: "Jamal oversees our digital platforms and ensures our technology solutions empower students effectively.",
-        linkedin: "https://linkedin.com/in/jamal",
-        twitter: "https://twitter.com/jamal",
-    },
-    {
-        name: "Sofia Rodriguez",
-        role: "Event Coordinator",
-        image: "/placeholder.svg?height=400&width=400",
-        bio: "Sofia plans and executes our events, creating memorable experiences that inspire and educate.",
-        linkedin: "https://linkedin.com/in/sofia",
-        twitter: "https://twitter.com/sofia",
-    },
-    {
-        name: "Ethan Kim",
-        role: "Volunteer Manager",
-        image: "/placeholder.svg?height=400&width=400",
-        bio: "Ethan recruits and manages our volunteer network, ensuring they have rewarding experiences while making an impact.",
-        linkedin: "https://linkedin.com/in/ethan",
-        twitter: "https://twitter.com/ethan",
-    },
-    {
-        name: "Zoe Chen",
-        role: "Curriculum Developer",
-        image: "/placeholder.svg?height=400&width=400",
-        bio: "Zoe creates engaging educational content that empowers students to develop leadership skills.",
-        linkedin: "https://linkedin.com/in/zoe",
-        twitter: "https://twitter.com/zoe",
-    },
-]
+];
+
 
 export default function TeamPage() {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -488,7 +497,7 @@ export default function TeamPage() {
                                                 <Twitter className="w-4 h-4" />
                                             </a>
                                             <a
-                                                href={`mailto:${member.name.toLowerCase().replace(" ", ".")}@stuimpact.works`}
+                                                href={`mailto:${member.name.toLowerCase().replace(" ", ".")}@stuimpact.org`}
                                                 className="w-8 h-8 rounded-full bg-gradient-to-r from-pink-500 to-red-500 flex items-center justify-center text-white transform hover:scale-110 transition-transform"
                                             >
                                                 <Mail className="w-4 h-4" />
