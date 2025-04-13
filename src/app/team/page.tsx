@@ -118,9 +118,9 @@ const boardMembers = [
     },
     {
         name: "Aasrith Gnana Arvapalli",
-        role: "Final Legal Team - Supreme Leader",
+        role: "Chief Operating Dude",
         image: "/aasrith.png",
-        bio: "Sankalp manages legal compliance, contract negotiations, and risk mitigation strategies.",
+        bio: "Aasrith manages communication channels and strategic outreach.",
         linkedin: "https://linkedin.com/in/sankalp",
         twitter: "https://twitter.com/sankalp",
     },
