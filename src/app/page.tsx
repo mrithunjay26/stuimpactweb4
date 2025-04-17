@@ -1238,7 +1238,7 @@ export default function Component() {
 									</div>
 
 									<div className="text-center">
-										<Link href="/contact">
+										<Link href="https://forms.gle/MfWK8UFPfZp6f2ENA">
 											<button className="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 text-white font-medium hover:from-cyan-700 hover:via-purple-700 hover:to-pink-700 shadow-lg hover:shadow-purple-500/20 transform hover:-translate-y-1 transition-all duration-300 relative group">
                         <span className="relative z-10 flex items-center">
                           Check it out!
