@@ -95,7 +95,7 @@ const boardMembers = [
     {
         name: "Mrithunjay Tanish Shanmuganand",
         role: "President",
-        image: "/mitu.PNG",
+        image: "/mitu.jpeg",
         bio: "President and mission leader, invigorating staff and team leads forward for our mission",
         linkedin: "https://linkedin.com/in/sankalp",
         twitter: "https://twitter.com/sankalp",
