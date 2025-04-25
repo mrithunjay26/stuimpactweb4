@@ -1,6 +1,22 @@
 "use client"
 import { useState, useEffect, useRef } from "react"
-import { Mail, Linkedin, Twitter, Menu, X, Heart, Sparkles, Star, Phone, MapPin, ArrowRight } from "lucide-react"
+import {
+	Mail,
+	Menu,
+	X,
+	Heart,
+	Sparkles,
+	Star,
+	Phone,
+	MapPin,
+	ArrowRight,
+	Award,
+	Users,
+	Calendar,
+	Briefcase,
+	ChevronLeft,
+	ChevronRight,
+} from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -30,111 +46,213 @@ const GlowingStreak = ({
 const PulsatingCircle = ({ className }: { className?: string }) => (
 	<div className={`absolute rounded-full animate-ripple ${className}`} />
 )
-// Board Members
-const teamMembers = [
-	{
-		name: "Jagan Nair",
-		role: "Business Team",
-		image: "/jagan.PNG",
-		bio: "Jagan leads business operations, driving strategic partnerships and funding initiatives.",
-		linkedin: "https://linkedin.com/in/jagan",
-		twitter: "https://twitter.com/jagan",
-	},
-	{
-		name: "Sudit",
-		role: "Business Team",
-		image: "/sudit.PNG",
-		bio: "Sudit supports organizational growth through market research and outreach.",
-		linkedin: "https://linkedin.com/in/sudit",
-		twitter: "https://twitter.com/sudit",
-	},
-	{
-		name: "Nitin",
-		role: "Business Team",
-		image: "/nitin.jfif",
-		bio: "Nitin works on scaling business efforts and developing new revenue streams.",
-		linkedin: "https://linkedin.com/in/nitin",
-		twitter: "https://twitter.com/nitin",
-	},
-	{
-		name: "Raghav",
-		role: "Business Team",
-		image: "/raghav.PNG",
-		bio: "Raghav focuses on financial planning and business strategy optimization.",
-		linkedin: "https://linkedin.com/in/raghav",
-		twitter: "https://twitter.com/raghav",
-	},
-	{
-		name: "Shaurya",
-		role: "Business Team",
-		image: "/shaurya.PNG",
-		bio: "Shaurya helps lead project management and client engagement strategies.",
-		linkedin: "https://linkedin.com/in/shaurya",
-		twitter: "https://twitter.com/shaurya",
-	},
-	{
-		name: "Tanush",
-		role: "Business Team",
-		image: "/tanush.PNG",
-		bio: "Tanush drives ambassador recruitment and training across chapters.",
-		linkedin: "https://linkedin.com/in/tanush",
-		twitter: "https://twitter.com/tanush",
-	},
-	{
-		name: "Sai",
-		role: "Business Team",
-		image: "/sai.jpeg",
-		bio: "Sai fosters partnerships between clubs and provides mentorship to leaders.",
-		linkedin: "https://linkedin.com/in/sai",
-		twitter: "https://twitter.com/sai",
-	},
-];
-teamMembers
-// Team Members
+
+// Board Members (updated to include only Mrithunjay and Aasrith)
 const boardMembers = [
 	{
 		name: "Mrithunjay Tanish Shanmuganand",
-		role: "President",
+		role: "President & Co-Founder",
 		image: "/mitu.jpeg",
-		bio: "President and mission leader, invigorating staff and team leads forward for our mission",
-		linkedin: "https://linkedin.com/in/sankalp",
-		twitter: "https://twitter.com/sankalp",
-	},
-	{
-		name: "Brian Kearl",
-		role: "Final Tech Team - Supreme Leader",
-		image: "/brian.jpg",
-		bio: "Brian oversees all technical operations, ensuring innovation and scalability across platforms.",
-		linkedin: "https://linkedin.com/in/brian",
-		twitter: "https://twitter.com/brian",
-	},
-	{
-		name: "Sankalp Mudaliar",
-		role: "Final Legal Team - Supreme Leader",
-		image: "/sankalp.png",
-		bio: "Sankalp manages legal compliance, contract negotiations, and risk mitigation strategies.",
-		linkedin: "https://linkedin.com/in/sankalp",
-		twitter: "https://twitter.com/sankalp",
+		bio: "President and visionary leader, guiding StuImpact's mission to empower students through meaningful opportunities and community engagement.",
+		achievements: [
+			"Founded StuImpact in December 2023",
+			"Established partnerships with 2 nonprofit organizations",
+			"Led the development of 5 core programs",
+			"Built a dedicated team of 25+ members",
+			"Reached 800+ students through various initiatives",
+		],
+		quote: "We're not just preparing students for the future—we're empowering them to make an impact today.",
 	},
 	{
 		name: "Aasrith Gnana Arvapalli",
-		role: "Final Legal Team - Supreme Leader",
+		role: "Director of Legal & Strategy",
 		image: "/aasrith.png",
-		bio: "Sankalp manages legal compliance, contract negotiations, and risk mitigation strategies.",
-		linkedin: "https://linkedin.com/in/sankalp",
-		twitter: "https://twitter.com/sankalp",
+		bio: "Aasrith oversees legal compliance and strategic planning, ensuring StuImpact's initiatives are both impactful and sustainable for long-term growth.",
+		achievements: [
+			"Secured 501(c)(3) nonprofit status",
+			"Developed the governance framework for the organization",
+			"Created comprehensive legal documentation and policies",
+			"Established strategic partnerships to expand StuImpact's reach",
+			"Guided the organization's mission alignment across all programs",
+		],
+		quote:
+			"Strong legal and strategic foundations allow our mission to flourish and create lasting impact for students.",
 	},
+]
 
-];
+// Top Team Members (updated with the 3 specified leads)
+const teamLeads = [
+	{
+		name: "Brian Kearl",
+		role: "Head of Technology",
+		image: "/brian.jpg",
+		bio: "Brian leads all technical initiatives at StuImpact, from developing our digital platforms to ensuring scalable infrastructure that supports our growing community.",
+		department: "Technology",
+		joinDate: "January 2024",
+		impact: "Built the Student Impact Ambassador Portal used by clubs across Washington",
+		responsibilities: [
+			"Overseeing platform development and maintenance",
+			"Implementing technology solutions for student engagement",
+			"Managing technical infrastructure and data systems",
+			"Leading the technical team and volunteer developers",
+		],
+	},
+	{
+		name: "Shaurya Shrivastava",
+		role: "Director of Operations",
+		image: "/shaurya.PNG",
+		bio: "Shaurya manages day-to-day operations, ensuring efficient processes and seamless execution of StuImpact's programs and initiatives across all departments.",
+		department: "Operations",
+		joinDate: "February 2024",
+		impact: "Streamlined volunteer management processes, increasing engagement by 40%",
+		responsibilities: [
+			"Coordinating across departments for seamless program execution",
+			"Developing operational procedures and best practices",
+			"Managing event planning and logistics",
+			"Ensuring resource allocation aligns with organizational priorities",
+		],
+	},
+	{
+		name: "Nitin Menugeti",
+		role: "Head of Business Development",
+		image: "/nitin.jfif",
+		bio: "Nitin drives growth strategies and partnerships, identifying opportunities to expand StuImpact's reach and impact through strategic collaborations and funding initiatives.",
+		department: "Business",
+		joinDate: "March 2024",
+		impact: "Secured key partnerships that expanded our program offerings to 5 distinct initiatives",
+		responsibilities: [
+			"Identifying and securing strategic partnerships",
+			"Developing sustainable funding models and revenue streams",
+			"Leading outreach to schools and community organizations",
+			"Creating growth strategies for expanding StuImpact's impact",
+		],
+	},
+]
 
+// Testimonials from team members
+const testimonials = [
+	{
+		quote:
+			"Being part of StuImpact from its early days has been an incredible journey. Seeing students discover their potential through our programs makes every challenge worthwhile.",
+		name: "Mrithunjay Tanish",
+		role: "President & Co-Founder",
+	},
+	{
+		quote:
+			"What makes StuImpact special is our focus on creating opportunities that truly matter to students. We're building more than just a nonprofit—we're building a movement.",
+		name: "Brian Kearl",
+		role: "Head of Technology",
+	},
+	{
+		quote:
+			"It's inspiring to see how quickly we've grown while staying true to our mission. The dedication of our team and the enthusiasm of the students we serve drives everything we do.",
+		name: "Nitin Menugeti",
+		role: "Head of Business Development",
+	},
+	{
+		quote:
+			"StuImpact represents what happens when passionate people come together with a clear purpose. In just over a year, we've created something that's making a real difference.",
+		name: "Aasrith Gnana",
+		role: "Director of Legal & Strategy",
+	},
+]
+
+// Organization milestones based on the provided snippet
+const milestones = [
+	{
+		year: "December 2023",
+		title: "Foundation",
+		description:
+			"StuImpact was established with a mission to empower the next generation of leaders through service, learning, and community engagement.",
+	},
+	{
+		year: "January 2024",
+		title: "First Partnerships",
+		description:
+			"Launched initial partnerships with nonprofit organizations in Washington State to provide students with meaningful volunteering opportunities.",
+	},
+	{
+		year: "March 2024",
+		title: "Student Impact Ambassadors",
+		description:
+			"Established the Student Impact Ambassador program to expand our reach and execute events through partnered clubs.",
+	},
+	{
+		year: "June 2024",
+		title: "Nonprofit Internships",
+		description:
+			"Began offering internships with nonprofit partners to enhance students' soft skills and provide real-world experience.",
+	},
+	{
+		year: "September 2024",
+		title: "Semester Opportunity List",
+		description:
+			"Launched our curated list of 250+ opportunities each semester to connect students with meaningful experiences.",
+	},
+	{
+		year: "June 2025",
+		title: "TecBiz Competition",
+		description:
+			"Planning our first TecBiz Competition where teams of students will create software solutions and business plans addressing real-world challenges.",
+	},
+]
+
+// StuImpact's programs
+const programs = [
+	{
+		name: "Student Impact Ambassadors",
+		description:
+			"Empowering student club representatives to organize and lead impactful community service initiatives.",
+		icon: Users,
+	},
+	{
+		name: "Nonprofit Internships",
+		description: "Connecting students with hands-on internship experiences at partner nonprofit organizations.",
+		icon: Briefcase,
+	},
+	{
+		name: "Mentorship Program",
+		description: "Pairing students with professionals in STEM and other fields for guidance and career development.",
+		icon: Star,
+	},
+	{
+		name: "Semester Opportunities",
+		description: "Curating 250+ meaningful volunteer and learning opportunities each semester for students.",
+		icon: Calendar,
+	},
+	{
+		name: "TecBiz Competition",
+		description: "Challenging student teams to develop innovative tech solutions to real-world problems.",
+		icon: Award,
+	},
+]
 
 export default function TeamPage() {
 	const [menuOpen, setMenuOpen] = useState(false)
 	const [scrolled, setScrolled] = useState(false)
 	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+	const [activeTab, setActiveTab] = useState("grid")
+	const [currentTestimonial, setCurrentTestimonial] = useState(0)
+	const [currentBoardMember, setCurrentBoardMember] = useState(0)
 	const headerRef = useRef<HTMLElement>(null)
 
 	const toggleMenu = () => setMenuOpen(!menuOpen)
+
+	const nextTestimonial = () => {
+		setCurrentTestimonial((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))
+	}
+
+	const prevTestimonial = () => {
+		setCurrentTestimonial((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))
+	}
+
+	const nextBoardMember = () => {
+		setCurrentBoardMember((prev) => (prev === boardMembers.length - 1 ? 0 : prev + 1))
+	}
+
+	const prevBoardMember = () => {
+		setCurrentBoardMember((prev) => (prev === 0 ? boardMembers.length - 1 : prev - 1))
+	}
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -154,6 +272,14 @@ export default function TeamPage() {
 		return () => {
 			window.removeEventListener("mousemove", handleMouseMove)
 		}
+	}, [])
+
+	// Auto-rotate testimonials
+	useEffect(() => {
+		const interval = setInterval(() => {
+			nextTestimonial()
+		}, 8000)
+		return () => clearInterval(interval)
 	}, [])
 
 	return (
@@ -242,6 +368,118 @@ export default function TeamPage() {
 						background-position: 0% 50%;
 					}
 				}
+        
+        .timeline-item {
+          position: relative;
+          padding-left: 2rem;
+          padding-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 2px;
+          background: linear-gradient(to bottom, #6366f1, #a855f7, #ec4899);
+        }
+        
+        .timeline-item::after {
+          content: '';
+          position: absolute;
+          left: -6px;
+          top: 0;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: linear-gradient(to right, #6366f1, #a855f7);
+        }
+
+        .tab-active {
+          background-color: white;
+          color: #6366f1;
+          font-weight: 500;
+        }
+
+        .tab-inactive {
+          background-color: transparent;
+          color: #64748b;
+        }
+
+        .tab-inactive:hover {
+          color: #334155;
+        }
+
+        .badge {
+          display: inline-block;
+          padding: 0.25rem 0.75rem;
+          font-size: 0.75rem;
+          font-weight: 500;
+          line-height: 1;
+          border-radius: 9999px;
+          background: linear-gradient(to right, #6366f1, #a855f7);
+          color: white;
+        }
+
+        .carousel-container {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .carousel-button {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: white;
+          display: flex;
+          align-items: center;
+          justify-center: center;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          z-index: 10;
+          cursor: pointer;
+          transition: all 0.2s;
+        }
+
+        .carousel-button:hover {
+          background-color: #f9fafb;
+        }
+
+        .carousel-button-prev {
+          left: 1rem;
+        }
+
+        .carousel-button-next {
+          right: 1rem;
+        }
+        
+        .program-card {
+          position: relative;
+          overflow: hidden;
+          transition: all 0.3s ease;
+        }
+        
+        .program-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          background: linear-gradient(to right, #6366f1, #a855f7, #ec4899);
+        }
+        
+        .program-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .icon-background {
+          background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+        }
 			`}</style>
 
 			{/* Dynamic background elements */}
@@ -372,89 +610,263 @@ export default function TeamPage() {
                   Meet Our Team
                 </span>
 							</h1>
-							<p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-3xl mx-auto">
+							<p className="text-xl md:text-2xl text-slate-600 mb-6 max-w-3xl mx-auto">
 								The passionate individuals behind StuImpact, working tirelessly to empower the next generation of
 								leaders and change-makers.
 							</p>
+							<p className="text-lg text-slate-600 mb-12 max-w-3xl mx-auto">
+								While our full team consists of <span className="font-semibold">25+ dedicated members</span>, this page
+								showcases our leadership team who guide our organization's vision and direction.
+							</p>
+
+							{/* Quick stats */}
+							<div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto mb-8">
+								<div className="bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-sm border border-slate-100">
+									<div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white mx-auto mb-3">
+										<Users className="w-6 h-6" />
+									</div>
+									<h3 className="text-3xl font-bold text-slate-800">25+</h3>
+									<p className="text-slate-600">Team Members</p>
+								</div>
+
+								<div className="bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-sm border border-slate-100">
+									<div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white mx-auto mb-3">
+										<Calendar className="w-6 h-6" />
+									</div>
+									<h3 className="text-3xl font-bold text-slate-800">2</h3>
+									<p className="text-slate-600">Years of Impact</p>
+								</div>
+
+								<div className="bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-sm border border-slate-100">
+									<div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-red-500 rounded-full flex items-center justify-center text-white mx-auto mb-3">
+										<Briefcase className="w-6 h-6" />
+									</div>
+									<h3 className="text-3xl font-bold text-slate-800">5</h3>
+									<p className="text-slate-600">Programs</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</section>
 
-				{/* Board Members Section */}
+				{/* Board Members Section with Tabs */}
 				<section className="py-16 relative overflow-hidden">
 					<div className="container mx-auto px-4 relative z-10">
-						<h2 className="text-4xl font-bold mb-16 text-center">
+						<h2 className="text-4xl font-bold mb-6 text-center">
               <span className="gradient-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
                 Board of Directors
               </span>
 						</h2>
+						<p className="text-center text-slate-600 mb-16 max-w-3xl mx-auto">
+							Our board members provide strategic vision and oversight, guiding StuImpact's growth since our founding in
+							December 2023.
+						</p>
 
-						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-							{boardMembers.map((member, index) => (
-								<div
-									key={index}
-									className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-100 card-hover-effect relative group"
-								>
-									<div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 rounded-[1rem] blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+						{/* Custom tabs */}
+						<div className="w-full max-w-6xl mx-auto">
+							<div className="flex justify-center mb-8">
+								<div className="inline-flex rounded-md bg-slate-100/80 backdrop-blur-sm p-1">
+									<button
+										onClick={() => setActiveTab("grid")}
+										className={`px-4 py-2 rounded-md transition-colors ${
+											activeTab === "grid" ? "tab-active" : "tab-inactive"
+										}`}
+									>
+										Grid View
+									</button>
+									<button
+										onClick={() => setActiveTab("carousel")}
+										className={`px-4 py-2 rounded-md transition-colors ${
+											activeTab === "carousel" ? "tab-active" : "tab-inactive"
+										}`}
+									>
+										Carousel
+									</button>
+									<button
+										onClick={() => setActiveTab("detailed")}
+										className={`px-4 py-2 rounded-md transition-colors ${
+											activeTab === "detailed" ? "tab-active" : "tab-inactive"
+										}`}
+									>
+										Detailed
+									</button>
+								</div>
+							</div>
 
-									<div className="relative z-10">
-										<div className="relative w-full h-64 mb-6 rounded-xl overflow-hidden">
-											<Image
-												src={member.image || "/placeholder.svg"}
-												alt={member.name}
-												fill
-												className="object-cover transition-transform duration-500 group-hover:scale-105"
-											/>
+							{/* Grid View - Modified for 2 board members */}
+							{activeTab === "grid" && (
+								<div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+									{boardMembers.map((member, index) => (
+										<div
+											key={index}
+											className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-100 card-hover-effect relative group"
+										>
+											<div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 rounded-[1rem] blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+
+											<div className="relative z-10">
+												<div className="relative w-full h-64 mb-6 rounded-xl overflow-hidden">
+													<Image
+														src={member.image || "/placeholder.svg?height=256&width=384"}
+														alt={member.name}
+														fill
+														className="object-cover transition-transform duration-500 group-hover:scale-105"
+													/>
+												</div>
+
+												<h3 className="text-xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+													{member.name}
+												</h3>
+
+												<p className="font-medium text-slate-700 mb-4">{member.role}</p>
+
+												<p className="text-slate-600 mb-6">{member.bio}</p>
+
+												<div className="flex space-x-3">
+													<a
+														href={`mailto:${member.name.toLowerCase()}@stuimpact.works`}
+														className="w-8 h-8 rounded-full bg-gradient-to-r from-pink-500 to-red-500 flex items-center justify-center text-white transform hover:scale-110 transition-transform"
+													>
+														<Mail className="w-4 h-4" />
+													</a>
+												</div>
+											</div>
 										</div>
+									))}
+								</div>
+							)}
 
-										<h3 className="text-xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-											{member.name}
-										</h3>
-
-										<p className="font-medium text-slate-700 mb-4">{member.role}</p>
-
-										<p className="text-slate-600 mb-6">{member.bio}</p>
-
-										<div className="flex space-x-3">
-											<a
-												href={member.linkedin}
-												target="_blank"
-												rel="noopener noreferrer"
-												className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white transform hover:scale-110 transition-transform"
-											>
-												<Linkedin className="w-4 h-4" />
-											</a>
-											<a
-												href={member.twitter}
-												target="_blank"
-												rel="noopener noreferrer"
-												className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white transform hover:scale-110 transition-transform"
-											>
-												<Twitter className="w-4 h-4" />
-											</a>
-											<a
-												href={`mailto:${member.name.toLowerCase()}@stuimpact.works`}
-												className="w-8 h-8 rounded-full bg-gradient-to-r from-pink-500 to-red-500 flex items-center justify-center text-white transform hover:scale-110 transition-transform"
-											>
-												<Mail className="w-4 h-4" />
-											</a>
+							{/* Carousel View */}
+							{activeTab === "carousel" && (
+								<div className="carousel-container w-full max-w-4xl mx-auto">
+									<div className="flex overflow-hidden">
+										<div
+											className="flex transition-transform duration-300 ease-in-out"
+											style={{
+												width: `${boardMembers.length * 100}%`,
+												transform: `translateX(-${(100 / boardMembers.length) * currentBoardMember}%)`,
+											}}
+										>
+											{boardMembers.map((member, index) => (
+												<div key={index} className="w-full px-4" style={{ flex: `0 0 ${100 / boardMembers.length}%` }}>
+													<div className="bg-white p-6 rounded-2xl shadow-md border border-slate-100 h-full">
+														<div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
+															<Image
+																src={member.image || "/placeholder.svg?height=192&width=320"}
+																alt={member.name}
+																fill
+																className="object-cover"
+															/>
+														</div>
+														<h3 className="text-lg font-bold mb-1 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+															{member.name}
+														</h3>
+														<p className="text-sm font-medium text-slate-700 mb-3">{member.role}</p>
+														<p className="text-sm text-slate-600 mb-4">{member.bio}</p>
+														<div className="mt-auto">
+															<a
+																href={`mailto:${member.name.toLowerCase()}@stuimpact.works`}
+																className="w-7 h-7 rounded-full bg-gradient-to-r from-pink-500 to-red-500 flex items-center justify-center text-white"
+															>
+																<Mail className="w-3 h-3" />
+															</a>
+														</div>
+													</div>
+												</div>
+											))}
 										</div>
 									</div>
+									<button
+										onClick={prevBoardMember}
+										className="carousel-button carousel-button-prev"
+										aria-label="Previous"
+									>
+										<ChevronLeft className="h-5 w-5 text-slate-600" />
+									</button>
+									<button onClick={nextBoardMember} className="carousel-button carousel-button-next" aria-label="Next">
+										<ChevronRight className="h-5 w-5 text-slate-600" />
+									</button>
 								</div>
-							))}
+							)}
+
+							{/* Detailed View */}
+							{activeTab === "detailed" && (
+								<div className="space-y-12">
+									{boardMembers.map((member, index) => (
+										<div
+											key={index}
+											className="bg-white p-8 rounded-2xl shadow-md border border-slate-100 relative overflow-hidden"
+										>
+											<div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
+											<div className="md:flex gap-8">
+												<div className="md:w-1/3 mb-6 md:mb-0">
+													<div className="relative w-full h-80 rounded-xl overflow-hidden mb-4">
+														<Image
+															src={member.image || "/placeholder.svg?height=320&width=240"}
+															alt={member.name}
+															fill
+															className="object-cover"
+														/>
+													</div>
+													<div className="flex space-x-3 mt-4">
+														<a
+															href={`mailto:${member.name.toLowerCase()}@stuimpact.works`}
+															className="w-10 h-10 rounded-full bg-gradient-to-r from-pink-500 to-red-500 flex items-center justify-center text-white transform hover:scale-110 transition-transform"
+														>
+															<Mail className="w-5 h-5" />
+														</a>
+													</div>
+												</div>
+												<div className="md:w-2/3">
+													<h3 className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+														{member.name}
+													</h3>
+													<p className="text-lg font-medium text-slate-700 mb-4">{member.role}</p>
+													<div className="mb-6">
+														<h4 className="text-lg font-semibold mb-2 text-slate-800">About</h4>
+														<p className="text-slate-600">{member.bio}</p>
+													</div>
+													<div className="mb-6">
+														<h4 className="text-lg font-semibold mb-2 text-slate-800">Key Achievements</h4>
+														<ul className="space-y-2">
+															{member.achievements.map((achievement, i) => (
+																<li key={i} className="flex items-start">
+																	<Award className="w-5 h-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
+																	<span className="text-slate-600">{achievement}</span>
+																</li>
+															))}
+														</ul>
+													</div>
+													<div>
+														<h4 className="text-lg font-semibold mb-2 text-slate-800">Quote</h4>
+														<blockquote className="pl-4 border-l-4 border-purple-300 italic text-slate-600">
+															"{member.quote}"
+														</blockquote>
+													</div>
+												</div>
+											</div>
+										</div>
+									))}
+								</div>
+							)}
 						</div>
 					</div>
 				</section>
 
-				{/* Team Members Section */}
+				{/* Team Leads Section */}
 				<section className="py-16 relative overflow-hidden bg-gradient-to-br from-indigo-50 to-purple-50">
 					<div className="container mx-auto px-4 relative z-10">
-						<h2 className="text-4xl font-bold mb-16 text-center">
-							<span className="gradient-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">The Good Team-Members</span>
+						<h2 className="text-4xl font-bold mb-6 text-center">
+              <span className="gradient-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+                Leadership Team
+              </span>
 						</h2>
+						<p className="text-center text-slate-600 mb-16 max-w-3xl mx-auto">
+							These key team leads manage our day-to-day operations and represent just a few of our 25+ member team
+							working behind the scenes.
+						</p>
 
-						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-							{teamMembers.map((member, index) => (
+						<div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+							{teamLeads.map((member, index) => (
 								<div
 									key={index}
 									className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-100 card-hover-effect relative group"
@@ -464,7 +876,7 @@ export default function TeamPage() {
 									<div className="relative z-10">
 										<div className="relative w-full h-48 mb-6 rounded-xl overflow-hidden">
 											<Image
-												src={member.image || "/placeholder.svg"}
+												src={member.image || "/placeholder.svg?height=192&width=320"}
 												alt={member.name}
 												fill
 												className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -477,25 +889,19 @@ export default function TeamPage() {
 
 										<p className="font-medium text-slate-700 mb-4">{member.role}</p>
 
+										<div className="mb-4 space-y-2">
+											<div className="flex items-center">
+                        <span className="inline-block px-2 py-1 text-xs font-medium bg-purple-50 text-purple-700 rounded-full border border-purple-200 mr-2">
+                          {member.department}
+                        </span>
+												<span className="text-sm text-slate-500">Since {member.joinDate}</span>
+											</div>
+											<p className="text-slate-600 text-sm italic">"{member.impact}"</p>
+										</div>
+
 										<p className="text-slate-600 mb-6">{member.bio}</p>
 
 										<div className="flex space-x-3">
-											<a
-												href={member.linkedin}
-												target="_blank"
-												rel="noopener noreferrer"
-												className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white transform hover:scale-110 transition-transform"
-											>
-												<Linkedin className="w-4 h-4" />
-											</a>
-											<a
-												href={member.twitter}
-												target="_blank"
-												rel="noopener noreferrer"
-												className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white transform hover:scale-110 transition-transform"
-											>
-												<Twitter className="w-4 h-4" />
-											</a>
 											<a
 												href={`mailto:${member.name.toLowerCase().replace(" ", ".")}@stuimpact.org`}
 												className="w-8 h-8 rounded-full bg-gradient-to-r from-pink-500 to-red-500 flex items-center justify-center text-white transform hover:scale-110 transition-transform"
@@ -510,8 +916,108 @@ export default function TeamPage() {
 					</div>
 				</section>
 
+				{/* Programs Section */}
+				<section className="py-16 relative overflow-hidden">
+					<div className="container mx-auto px-4 relative z-10">
+						<h2 className="text-4xl font-bold mb-6 text-center">
+              <span className="gradient-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+                Our Programs
+              </span>
+						</h2>
+						<p className="text-center text-slate-600 mb-16 max-w-3xl mx-auto">
+							Led by our dedicated team, these five core programs help us fulfill our mission of empowering students
+							through meaningful opportunities.
+						</p>
+
+						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+							{programs.map((program, index) => {
+								const Icon = program.icon
+								return (
+									<div key={index} className="program-card bg-white p-6 rounded-xl shadow-md">
+										<div className="w-12 h-12 icon-background rounded-full flex items-center justify-center mb-4">
+											<Icon className="w-6 h-6 text-indigo-600" />
+										</div>
+										<h3 className="text-lg font-bold mb-2 text-slate-800">{program.name}</h3>
+										<p className="text-slate-600">{program.description}</p>
+									</div>
+								)
+							})}
+						</div>
+					</div>
+				</section>
+
+				{/* Testimonials Section */}
+				<section className="py-16 relative overflow-hidden bg-gradient-to-br from-indigo-50 to-purple-50">
+					<div className="container mx-auto px-4 relative z-10">
+						<h2 className="text-4xl font-bold mb-16 text-center">
+              <span className="gradient-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+                Team Voices
+              </span>
+						</h2>
+
+						<div className="carousel-container w-full max-w-4xl mx-auto">
+							<div className="bg-white border border-slate-100 shadow-md rounded-2xl overflow-hidden">
+								<div className="p-8">
+									<div className="flex mb-2">
+										{[...Array(5)].map((_, i) => (
+											<Star key={i} className="w-5 h-5 text-amber-400 fill-amber-400" />
+										))}
+									</div>
+									<blockquote className="text-xl italic text-slate-700 mb-6">
+										"{testimonials[currentTestimonial].quote}"
+									</blockquote>
+									<div className="flex items-center">
+										<div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-lg mr-4">
+											{testimonials[currentTestimonial].name.charAt(0)}
+										</div>
+										<div>
+											<p className="font-bold text-slate-800">{testimonials[currentTestimonial].name}</p>
+											<p className="text-slate-600">{testimonials[currentTestimonial].role}</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div className="flex justify-center mt-4 space-x-2">
+								{testimonials.map((_, index) => (
+									<button
+										key={index}
+										onClick={() => setCurrentTestimonial(index)}
+										className={`w-3 h-3 rounded-full transition-colors ${
+											currentTestimonial === index ? "bg-gradient-to-r from-purple-500 to-pink-500" : "bg-slate-300"
+										}`}
+										aria-label={`Go to testimonial ${index + 1}`}
+									/>
+								))}
+							</div>
+						</div>
+					</div>
+				</section>
+
+				{/* Organization Timeline */}
+				<section className="py-16 relative overflow-hidden">
+					<div className="container mx-auto px-4 relative z-10">
+						<h2 className="text-4xl font-bold mb-16 text-center">
+              <span className="gradient-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+                Our Journey
+              </span>
+						</h2>
+
+						<div className="max-w-3xl mx-auto">
+							{milestones.map((milestone, index) => (
+								<div key={index} className="timeline-item">
+									<div className="mb-2">
+										<span className="badge">{milestone.year}</span>
+									</div>
+									<h3 className="text-xl font-bold mb-2 text-slate-800">{milestone.title}</h3>
+									<p className="text-slate-600 mb-4">{milestone.description}</p>
+								</div>
+							))}
+						</div>
+					</div>
+				</section>
+
 				{/* Join Our Team Section */}
-				<section className="py-24 relative overflow-hidden">
+				<section className="py-24 relative overflow-hidden bg-gradient-to-br from-indigo-50 to-purple-50">
 					<div className="container mx-auto px-4 relative z-10">
 						<div className="max-w-4xl mx-auto">
 							<div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-10 rounded-3xl shadow-xl text-white relative overflow-hidden">
@@ -659,7 +1165,8 @@ export default function TeamPage() {
 										href="/terms"
 										className="block text-slate-600 hover:text-purple-600 transition-colors relative group"
 									>
-
+										<span className="relative z-10">Terms of Service</span>
+										<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 group-hover:w-full transition-all duration-300"></span>
 									</Link>
 								</div>
 							</div>
