@@ -115,7 +115,7 @@ const teamLeads = [
 	{
 		name: "Nitin Menugeti",
 		role: "Head of Business Development",
-		image: "/nitin.jfif",
+		image: "/nitin.PNG",
 		bio: "Nitin drives growth strategies and partnerships, identifying opportunities to expand StuImpact's reach and impact through strategic collaborations and funding initiatives.",
 		department: "Business",
 		joinDate: "March 2024",
