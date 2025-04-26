@@ -1194,7 +1194,7 @@ export default function Component() {
 												<ul className="space-y-4 text-slate-600">
 													{[
 														"Access to our ambassador portal with exclusive resources",
-														"Event planning assistance and co-branding opportunities",
+														"pre-planned events for club opportunities",
 														"Volunteer hour tracking and verification system",
 														"Expanded network of volunteer opportunities",
 														"Leadership development for club ambassadors",
