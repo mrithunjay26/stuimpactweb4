@@ -719,24 +719,24 @@ export default function StuConnect() {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {[
                                 {
-                                    name: "Alex Johnson",
-                                    role: "Cold Calling Volunteer",
+                                    name: "Alec Freeman",
+                                    role: "Cold Calling",
                                     testimonial:
-                                        "Being part of StuConnect has given me incredible communication skills. I've helped bring 15 new students to the TecBiz Competition, and the marketing certification I earned helped me land an internship!",
+                                        "Being part of StuConnect has given me incredible communication skills. I've helped bring 23 new students to the TecBiz Competition!",
                                     color: "from-cyan-400 to-blue-500",
                                 },
                                 {
-                                    name: "Sophia Davis",
-                                    role: "Email Marketing Volunteer",
+                                    name: "Sophia Kalis",
+                                    role: "Email Marketing",
                                     testimonial:
                                         "I've always been interested in digital marketing, and StuConnect gave me real-world experience. My spotlight story was featured on StuImpact's social media, which was an amazing recognition of my work.",
                                     color: "from-purple-400 to-pink-500",
                                 },
                                 {
-                                    name: "Ethan Cho",
+                                    name: "Ignacio Iglesias",
                                     role: "On-the-Ground Marketing",
                                     testimonial:
-                                        "Representing StuImpact at school events has built my confidence and leadership skills. The exclusive access to ClubSync's premium features has also been incredibly helpful for organizing my own club activities.",
+                                        "Representing StuImpact at school events has built my confidence and leadership skills!",
                                     color: "from-amber-400 to-red-500",
                                 },
                             ].map((item, index) => (
