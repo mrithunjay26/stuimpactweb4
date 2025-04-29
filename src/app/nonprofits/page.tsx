@@ -220,11 +220,12 @@ export default function Nonprofits() {
 
             <nav className="hidden md:flex space-x-8">
               {[
-                { name: "Our Mission", href: "/#our-mission" },
-                { name: "Opportunities", href: "/opportunities" },
-                { name: "Our Team", href: "/team" },
-                { name: "Partner With Us", href: "/nonprofits" },
-                { name: "Contact", href: "/contact" },
+               { name: "Our Mission", href: "/#our-mission" },
+								{ name: "StuConnect", href: "/stuconnect" },
+								{ name: "Opportunities", href: "/opportunities" },
+								{ name: "Our Team", href: "/team" },
+								{ name: "Partner With Us", href: "/nonprofits" },
+								{ name: "Contact", href: "/contact" },
               ].map((item) => (
                   <Link
                       key={item.name}
@@ -259,11 +260,12 @@ export default function Nonprofits() {
                 </button>
                 <nav className="flex flex-col space-y-8">
                   {[
-                    { name: "Our Mission", href: "/" },
-                    { name: "What We Do", href: "/#services" },
-                    { name: "Nonprofits", href: "/nonprofits" },
-                    { name: "Our Team", href: "/team" },
-                    { name: "Contact", href: "/contact" },
+                    { name: "Our Mission", href: "/#our-mission" },
+								{ name: "StuConnect", href: "/stuconnect" },
+								{ name: "Opportunities", href: "/opportunities" },
+								{ name: "Our Team", href: "/team" },
+								{ name: "Partner With Us", href: "/nonprofits" },
+								{ name: "Contact", href: "/contact" },
                   ].map((item) => (
                       <Link
                           key={item.name}
