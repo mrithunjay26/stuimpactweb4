@@ -515,6 +515,7 @@ export default function Component() {
 						<nav className="hidden md:flex space-x-8">
 							{[
 								{ name: "Our Mission", href: "/#our-mission" },
+								{ name: "StuConnect", href: "/stuconnect" },
 								{ name: "Opportunities", href: "/opportunities" },
 								{ name: "Our Team", href: "/team" },
 								{ name: "Partner With Us", href: "/nonprofits" },
@@ -554,10 +555,11 @@ export default function Component() {
 							<nav className="flex flex-col space-y-8">
 								{[
 									{ name: "Our Mission", href: "/#our-mission" },
-									{ name: "Opportunities", href: "/opportunities" },
-									{ name: "Our Team", href: "/team" },
-									{ name: "Partner With Us", href: "/nonprofits" },
-									{ name: "Contact", href: "/contact" },
+								{ name: "StuConnect", href: "/stuconnect" },
+								{ name: "Opportunities", href: "/opportunities" },
+								{ name: "Our Team", href: "/team" },
+								{ name: "Partner With Us", href: "/nonprofits" },
+								{ name: "Contact", href: "/contact" },
 								].map((item) => (
 									<Link
 										key={item.name}
