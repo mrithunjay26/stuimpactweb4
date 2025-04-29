@@ -274,10 +274,11 @@ export default function ContactPage() {
 					<nav className="hidden md:flex space-x-8">
 						{[
 							{ name: "Our Mission", href: "/#our-mission" },
-							{ name: "Opportunities", href: "/opportunities" },
-							{ name: "Our Team", href: "/team" },
-							{ name: "Partner With Us", href: "/nonprofits" },
-							{ name: "Contact", href: "/contact" },
+								{ name: "StuConnect", href: "/stuconnect" },
+								{ name: "Opportunities", href: "/opportunities" },
+								{ name: "Our Team", href: "/team" },
+								{ name: "Partner With Us", href: "/nonprofits" },
+								{ name: "Contact", href: "/contact" },
 						].map((item) => (
 							<Link
 								key={item.name}
@@ -312,10 +313,11 @@ export default function ContactPage() {
 						</button>
 						<nav className="flex flex-col space-y-8">
 							{[
-								{ name: "Our Mission", href: "/" },
-								{ name: "What We Do", href: "/#services" },
-								{ name: "Nonprofits", href: "/nonprofits" },
+								{ name: "Our Mission", href: "/#our-mission" },
+								{ name: "StuConnect", href: "/stuconnect" },
+								{ name: "Opportunities", href: "/opportunities" },
 								{ name: "Our Team", href: "/team" },
+								{ name: "Partner With Us", href: "/nonprofits" },
 								{ name: "Contact", href: "/contact" },
 							].map((item) => (
 								<Link
