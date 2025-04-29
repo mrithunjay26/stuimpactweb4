@@ -345,7 +345,7 @@ export default function StuConnect() {
 
                         <div className="relative w-full max-w-3xl mx-auto h-64 md:h-80 rounded-3xl overflow-hidden mb-12">
                             <Image
-                                src="/placeholder.svg?height=400&width=1000"
+                                src="/marketing.png?height=400&width=1000"
                                 alt="Students collaborating on marketing"
                                 fill
                                 className="object-cover"
