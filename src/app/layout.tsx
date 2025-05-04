@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'StuImpact - Discover Opportunities for Students',
     description: 'Explore internships, jobs, and volunteer opportunities tailored for students. Find your next step with StuImpact.',
-    url: 'https://www.stuimpact.works',
+    url: 'https://www.stuimpact.org',
     type: 'website',
     siteName: 'StuImpact',
   },
