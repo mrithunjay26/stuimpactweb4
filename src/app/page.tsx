@@ -967,7 +967,7 @@ export default function Component() {
                           <span className="px-3 py-1 bg-white/20 rounded-full text-sm">Free for Beta Users</span>
                         </div>
                       </div>
-                      <Link href="https://forms.gle/MfWK8UFPfZp6f2ENA">
+                      <Link href="https://tally.so/r/wQb12Y">
                         <button className="px-8 py-4 rounded-full bg-white text-indigo-600 font-medium hover:bg-white/90 shadow-lg transform hover:-translate-y-1 transition-all duration-300 relative group">
                           <a
   href="https://tally.so/r/wQb12Y"
@@ -2055,3 +2055,4 @@ export default function Component() {
     </div>
   )
 }
+
