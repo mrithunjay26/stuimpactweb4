@@ -560,6 +560,237 @@ export default function StuConnect() {
           </div>
         </section>
 
+        {/* Certificate Preview & College Impact Section */}
+        <section className="py-24 relative overflow-hidden">
+          <div className="container mx-auto px-4 relative z-10">
+            <h2 className="text-4xl font-bold mb-16 text-center">
+              <span className="gradient-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+                Your Professional Marketing Certificate
+              </span>
+            </h2>
+
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                {/* Certificate Preview */}
+                <div className="relative">
+                  <div className="bg-white p-8 rounded-2xl shadow-2xl border-2 border-gradient-to-r from-blue-200 to-purple-200 relative overflow-hidden transform hover:scale-105 transition-all duration-500">
+                    {/* Certificate Background Pattern */}
+                    <div className="absolute inset-0 opacity-5">
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600"></div>
+                      <div className="absolute inset-4 border-2 border-blue-300 rounded-lg"></div>
+                      <div className="absolute inset-8 border border-purple-200 rounded-lg"></div>
+                    </div>
+
+                    <div className="relative z-10">
+                      {/* Header */}
+                      <div className="text-center mb-6">
+                        <div className="flex justify-center items-center mb-4">
+                          <img src="/stuimpactt.png" alt="StuImpact Logo" className="h-12 mr-4" />
+                          <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                            <GraduationCap className="w-6 h-6 text-white" />
+                          </div>
+                        </div>
+                        <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+                          Professional Marketing Certificate
+                        </h3>
+                        <p className="text-slate-600 text-sm">StuConnect Internship Program</p>
+                      </div>
+
+                      {/* Certificate Content */}
+                      <div className="space-y-4 mb-6">
+                        <div className="text-center">
+                          <p className="text-lg text-slate-700">This certifies that</p>
+                          <p className="text-2xl font-bold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                            [Student Name]
+                          </p>
+                          <p className="text-slate-700 mt-2">has successfully completed the</p>
+                          <p className="text-xl font-semibold text-purple-700">
+                            Certified Marketing Professional Program
+                          </p>
+                        </div>
+
+                        {/* Quantifiable Impact Metrics */}
+                        <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-lg border border-blue-100">
+                          <h4 className="font-bold text-blue-700 mb-2 text-center">Verified Impact Metrics</h4>
+                          <div className="grid grid-cols-2 gap-4 text-sm">
+                            <div className="text-center">
+                              <p className="font-bold text-blue-600">Campaign Reach</p>
+                              <p className="text-slate-600">2,847 students</p>
+                            </div>
+                            <div className="text-center">
+                              <p className="font-bold text-purple-600">Engagement Rate</p>
+                              <p className="text-slate-600">78.3%</p>
+                            </div>
+                            <div className="text-center">
+                              <p className="font-bold text-pink-600">Conversions</p>
+                              <p className="text-slate-600">456 signups</p>
+                            </div>
+                            <div className="text-center">
+                              <p className="font-bold text-indigo-600">ROI Generated</p>
+                              <p className="text-slate-600">340%</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Skills Verified */}
+                        <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-lg border border-green-100">
+                          <h4 className="font-bold text-green-700 mb-2 text-center">Verified Marketing Skills</h4>
+                          <div className="flex flex-wrap justify-center gap-2 text-xs">
+                            {[
+                              "Digital Campaign Strategy",
+                              "Analytics & Reporting",
+                              "Social Media Marketing",
+                              "Content Creation",
+                              "A/B Testing",
+                              "ROI Optimization",
+                            ].map((skill, index) => (
+                              <span
+                                key={index}
+                                className="bg-green-100 text-green-700 px-2 py-1 rounded-full border border-green-200"
+                              >
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Signatures */}
+                      <div className="flex justify-between items-end text-xs text-slate-600">
+                        <div className="text-center">
+                          <div className="w-20 h-px bg-slate-300 mb-1"></div>
+                          <p>Partner Organization</p>
+                          <p className="font-semibold">Training Director</p>
+                        </div>
+                        <div className="text-center">
+                          <div className="w-20 h-px bg-slate-300 mb-1"></div>
+                          <p>StuImpact</p>
+                          <p className="font-semibold">Marketing Director</p>
+                        </div>
+                      </div>
+
+                      {/* Certificate ID */}
+                      <div className="text-center mt-4 text-xs text-slate-500">
+                        <p>
+                          Certificate ID: SC-2024-
+                          {Math.floor(Math.random() * 10000)
+                            .toString()
+                            .padStart(4, "0")}
+                        </p>
+                        <p>Blockchain Verified • Tamper-Proof</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Floating elements around certificate */}
+                  <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-pulse"></div>
+                  <div
+                    className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse"
+                    style={{ animationDelay: "1s" }}
+                  ></div>
+                  <div
+                    className="absolute top-1/2 -left-6 w-4 h-4 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full animate-pulse"
+                    style={{ animationDelay: "2s" }}
+                  ></div>
+                </div>
+
+                {/* Certificate Value Content */}
+                <div className="space-y-8">
+                  <div>
+                    <h3 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+                      More Than Just a Certificate
+                    </h3>
+                    <p className="text-lg text-slate-600 mb-6">
+                      Your StuConnect certificate isn't just recognition—it's proof of real marketing expertise with
+                      quantifiable results that set you apart in college applications and career opportunities.
+                    </p>
+                  </div>
+
+                  {/* College Application Benefits */}
+                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-xl border border-green-100">
+                    <h4 className="text-xl font-bold text-green-700 mb-4 flex items-center">
+                      <GraduationCap className="w-6 h-6 mr-2" />
+                      Perfect for College Applications
+                    </h4>
+                    <ul className="space-y-3 text-slate-700">
+                      <li className="flex items-start">
+                        <ChevronRight className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5 mr-2" />
+                        <span>
+                          <strong>Quantifiable Impact:</strong> Show admissions officers exact numbers—students reached,
+                          engagement rates, conversions generated
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <ChevronRight className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5 mr-2" />
+                        <span>
+                          <strong>Professional Experience:</strong> Demonstrate real internship work, not just volunteer
+                          hours or club participation
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <ChevronRight className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5 mr-2" />
+                        <span>
+                          <strong>Leadership Evidence:</strong> Prove you've successfully managed marketing campaigns
+                          that created measurable community impact
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Verification & Authenticity */}
+                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-100">
+                    <h4 className="text-xl font-bold text-blue-700 mb-4 flex items-center">
+                      <BarChart3 className="w-6 h-6 mr-2" />
+                      Verified Marketing Knowledge
+                    </h4>
+                    <ul className="space-y-3 text-slate-700">
+                      <li className="flex items-start">
+                        <ChevronRight className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5 mr-2" />
+                        <span>
+                          <strong>Partner-Authenticated:</strong> Training completed through authorized marketing
+                          education organizations with industry recognition
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <ChevronRight className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5 mr-2" />
+                        <span>
+                          <strong>Blockchain Verified:</strong> Certificate authenticity guaranteed through secure
+                          blockchain technology—impossible to fake
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <ChevronRight className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5 mr-2" />
+                        <span>
+                          <strong>Real Results Portfolio:</strong> Every metric documented and verified by StuImpact's
+                          analytics systems
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Call to Action */}
+                  <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-6 rounded-xl text-white">
+                    <h4 className="text-xl font-bold mb-2">Start Building Your Professional Portfolio</h4>
+                    <p className="text-purple-100 mb-4">
+                      Join StuConnect and earn a certificate that proves your marketing expertise with real,
+                      quantifiable results.
+                    </p>
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSfdriz7xYjnttbtpVCzcXIJo4B7mtljRf3lBo5SLYQba48Otw/viewform"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <button className="bg-white text-purple-600 px-6 py-3 rounded-full font-medium hover:bg-purple-50 transition-colors">
+                        Apply for Your Certificate
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ClubSync Marketing Focus */}
         <section id="clubsync-focus" className="py-24 relative overflow-hidden">
           <div className="container mx-auto px-4 relative z-10">
