@@ -578,26 +578,28 @@ export default function Component() {
 
         <main>
           {/* Hero Section - Removed background image, added ClubSync video promo on right */}
-         <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-100 via-white to-purple-50 overflow-hidden">
-  {/* Background glows */}
+         {/* Hero Section - Enhanced with interactive video */}
+<section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-600 via-purple-400 to-fuchsia-500 overflow-hidden">
+  {/* Enhanced background effects */}
   <div className="absolute inset-0 -z-10">
-    <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-purple-300/30 rounded-full blur-3xl"></div>
-    <div className="absolute bottom-[-20%] left-1/3 w-[600px] h-[600px] bg-violet-400/20 rounded-full blur-3xl"></div>
+    <div className="absolute top-[-10%] left-1/4 w-[600px] h-[600px] bg-white/20 rounded-full blur-3xl animate-pulse"></div>
+    <div className="absolute bottom-[-10%] right-1/4 w-[800px] h-[800px] bg-fuchsia-300/30 rounded-full blur-3xl animate-pulse"></div>
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-purple-300/20 rounded-full blur-3xl"></div>
   </div>
 
-  {/* Sparkles */}
+  {/* Enhanced sparkles with more movement */}
   <div className="absolute inset-0 -z-0 overflow-visible pointer-events-none">
-    {[...Array(25)].map((_, i) => (
+    {[...Array(40)].map((_, i) => (
       <div
         key={i}
-        className="absolute rounded-full bg-gradient-to-r from-purple-400/30 via-violet-400/30 to-fuchsia-400/30 blur-sm"
+        className="absolute rounded-full bg-gradient-to-r from-white/60 via-purple-200/80 to-fuchsia-200/60 blur-sm animate-pulse"
         style={{
-          width: `${Math.random() * 4 + 2}px`,
-          height: `${Math.random() * 4 + 2}px`,
-          top: `${Math.random() * 120 - 10}%`, // extra breathing room
+          width: `${Math.random() * 6 + 3}px`,
+          height: `${Math.random() * 6 + 3}px`,
+          top: `${Math.random() * 120 - 10}%`,
           left: `${Math.random() * 100}%`,
-          animation: `float ${Math.random() * 12 + 8}s linear infinite`,
-          animationDelay: `${Math.random() * 10}s`,
+          animation: `float ${Math.random() * 8 + 6}s ease-in-out infinite`,
+          animationDelay: `${Math.random() * 8}s`,
         }}
       />
     ))}
@@ -605,39 +607,94 @@ export default function Component() {
 
   <div className="container mx-auto px-6 relative z-10 pt-28">
     <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-20">
-      {/* Left side - Mission */}
-      <div className="w-full lg:w-1/2 text-center lg:text-left space-y-6">
-        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-slate-900">
-          Empowering <span className="bg-gradient-to-r from-purple-500 to-fuchsia-600 bg-clip-text text-transparent">Students</span><br />
-          To Lead & Innovate
-        </h1>
-        <p className="text-lg md:text-xl text-slate-600 max-w-xl mx-auto lg:mx-0">
-          StuImpact builds spaces for student leadership and engagement — from{" "}
-          <span className="font-semibold text-purple-600">ClubSync</span> for clubs to{" "}
-          <span className="font-semibold text-fuchsia-600">TechBiz Challenge</span> for innovators.
+      {/* Left side - Enhanced Mission */}
+      <div className="w-full lg:w-1/2 text-center lg:text-left space-y-8">
+        <div className="space-y-4">
+          <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight text-white drop-shadow-lg">
+            We Don't Just<br />
+            <span className="bg-gradient-to-r from-yellow-300 via-white to-purple-200 bg-clip-text text-transparent animate-pulse">
+              Create Platforms
+            </span>
+          </h1>
+          <h2 className="text-3xl md:text-4xl font-bold text-purple-100 leading-tight">
+            We <span className="text-yellow-300 font-extrabold">Empower Students</span><br />
+            To Lead & Find Their Path
+          </h2>
+        </div>
+        
+        <p className="text-xl md:text-2xl text-purple-50 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
+          StuImpact creates opportunities that match your interests and passions. From{" "}
+          <span className="font-bold text-yellow-300 bg-purple-800/30 px-2 py-1 rounded-lg">ClubSync</span> connecting you with clubs to{" "}
+          <span className="font-bold text-yellow-300 bg-purple-800/30 px-2 py-1 rounded-lg">TechBiz Challenge</span> launching your innovations.
         </p>
-        <a href="https://tally.so/r/wQb12Y" target="_blank" rel="noopener noreferrer">
-          <button className="glow-button bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white px-8 py-4 rounded-2xl text-lg font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300">
-            Request Early Access
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <a href="https://tally.so/r/wQb12Y" target="_blank" rel="noopener noreferrer">
+            <button className="group relative bg-white text-purple-600 px-10 py-5 rounded-2xl text-xl font-bold shadow-2xl hover:shadow-purple-500/25 hover:scale-110 transition-all duration-300 border-4 border-purple-200">
+              <span className="relative z-10">Start Your Journey</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-purple-300 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+            </button>
+          </a>
+          <button className="bg-purple-800/50 backdrop-blur-sm text-white px-8 py-5 rounded-2xl text-lg font-semibold border-2 border-purple-300/50 hover:bg-purple-700/60 hover:scale-105 transition-all duration-300">
+            Learn More
           </button>
-        </a>
+        </div>
       </div>
 
-      {/* Right side - Previews */}
-      <div className="w-full lg:w-1/2 flex flex-col md:flex-row gap-6 justify-center lg:justify-end">
-        {/* ClubSync card */}
-        <div className="relative bg-white p-6 rounded-2xl shadow-xl border border-slate-200 w-full max-w-sm aspect-[4/3]">
-          <h3 className="text-xl font-semibold text-purple-700 mb-2">ClubSync</h3>
-          <p className="text-sm text-slate-600">
-            A smarter, faster way to manage your student clubs — stay connected, stay organized.
-          </p>
-        </div>
-        {/* TechBiz card */}
-        <div className="relative bg-white p-6 rounded-2xl shadow-xl border border-slate-200 w-full max-w-sm aspect-[4/3]">
-          <h3 className="text-xl font-semibold text-fuchsia-700 mb-2">TechBiz Challenge</h3>
-          <p className="text-sm text-slate-600">
-            Our annual student innovation competition where ideas turn into real impact.
-          </p>
+      {/* Right side - Interactive Video */}
+      <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+        <div 
+          className={`relative transition-all duration-700 ease-in-out cursor-pointer ${
+            videoExpanded ? 'w-full lg:w-[150%]' : 'w-full max-w-md'
+          }`}
+          onClick={() => setVideoExpanded(!videoExpanded)}
+        >
+          <div className="relative bg-white/10 backdrop-blur-lg p-4 rounded-3xl shadow-2xl border border-white/20 hover:shadow-purple-500/30 transition-all duration-300 group">
+            {/* Video container */}
+            <div className="relative aspect-video rounded-2xl overflow-hidden bg-gradient-to-br from-purple-900 to-fuchsia-900">
+              <video
+                className="w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+              >
+                <source src="/clubsync-demo.mp4" type="video/mp4" />
+                {/* Fallback content */}
+                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-purple-800 to-fuchsia-800">
+                  <div className="text-center text-white p-8">
+                    <div className="w-20 h-20 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
+                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold mb-2">ClubSync Demo</h3>
+                    <p className="text-purple-200">See how we're revolutionizing student engagement</p>
+                  </div>
+                </div>
+              </video>
+              
+              {/* Play overlay */}
+              <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
+                  <svg className="w-6 h-6 text-purple-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            
+            {/* Video info */}
+            <div className="mt-4 text-center">
+              <h3 className="text-xl font-bold text-white mb-2">ClubSync in Action</h3>
+              <p className="text-purple-100 text-sm">
+                {videoExpanded ? 'Click to minimize' : 'Click to expand and see the full experience'}
+              </p>
+            </div>
+          </div>
+          
+          {/* Glow effect */}
+          <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/30 to-fuchsia-500/30 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
         </div>
       </div>
     </div>
@@ -1992,6 +2049,7 @@ export default function Component() {
     </div>
   )
 }
+
 
 
 
