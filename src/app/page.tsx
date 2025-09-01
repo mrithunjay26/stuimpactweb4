@@ -578,135 +578,72 @@ export default function Component() {
 
         <main>
           {/* Hero Section - Removed background image, added ClubSync video promo on right */}
-          <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-rose-50">
-            {/* Additional hero animations */}
-            <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute w-full h-full">
-                {[...Array(20)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="absolute rounded-full bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 blur-sm"
-                    style={{
-                      width: `${Math.random() * 4 + 1}px`,
-                      height: `${Math.random() * 4 + 1}px`,
-                      top: `${Math.random() * 100}%`,
-                      left: `${Math.random() * 100}%`,
-                      animation: `float ${Math.random() * 10 + 10}s linear infinite`,
-                      animationDelay: `${Math.random() * 10}s`,
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
+         <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-100 via-white to-purple-50 overflow-hidden">
+  {/* Background glows */}
+  <div className="absolute inset-0 -z-10">
+    <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-purple-300/30 rounded-full blur-3xl"></div>
+    <div className="absolute bottom-[-20%] left-1/3 w-[600px] h-[600px] bg-violet-400/20 rounded-full blur-3xl"></div>
+  </div>
 
-            <div className="container mx-auto px-4 relative z-10">
-              <div className="flex flex-col lg:flex-row items-center gap-12">
-                {/* Left side - Text content */}
-                <div className="w-full lg:w-1/2 text-center lg:text-left">
-                  <div className="relative inline-block mb-6">
-                    <Sparkles className="absolute -top-10 -left-10 w-8 h-8 text-amber-400 animate-pulse" />
-                    <Sparkles
-                      className="absolute -top-6 -right-10 w-6 h-6 text-cyan-400 animate-pulse"
-                      style={{ animationDelay: "1s" }}
-                    />
-                  </div>
+  {/* Sparkles */}
+  <div className="absolute inset-0 -z-0 overflow-visible pointer-events-none">
+    {[...Array(25)].map((_, i) => (
+      <div
+        key={i}
+        className="absolute rounded-full bg-gradient-to-r from-purple-400/30 via-violet-400/30 to-fuchsia-400/30 blur-sm"
+        style={{
+          width: `${Math.random() * 4 + 2}px`,
+          height: `${Math.random() * 4 + 2}px`,
+          top: `${Math.random() * 120 - 10}%`, // extra breathing room
+          left: `${Math.random() * 100}%`,
+          animation: `float ${Math.random() * 12 + 8}s linear infinite`,
+          animationDelay: `${Math.random() * 10}s`,
+        }}
+      />
+    ))}
+  </div>
 
-                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-slate-800 mb-6 leading-tight">
-                    The Nonprofit That{" "}
-                    <span className="gradient-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">
-                      Actually Listens
-                    </span>{" "}
-                    <br />
-                    <span className="text-2xl md:text-3xl lg:text-4xl font-light italic">(Shocking, Right?)</span>
-                  </h1>
+  <div className="container mx-auto px-6 relative z-10 pt-28">
+    <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-20">
+      {/* Left side - Mission */}
+      <div className="w-full lg:w-1/2 text-center lg:text-left space-y-6">
+        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-slate-900">
+          Empowering <span className="bg-gradient-to-r from-purple-500 to-fuchsia-600 bg-clip-text text-transparent">Students</span><br />
+          To Lead & Innovate
+        </h1>
+        <p className="text-lg md:text-xl text-slate-600 max-w-xl mx-auto lg:mx-0">
+          StuImpact builds spaces for student leadership and engagement — from{" "}
+          <span className="font-semibold text-purple-600">ClubSync</span> for clubs to{" "}
+          <span className="font-semibold text-fuchsia-600">TechBiz Challenge</span> for innovators.
+        </p>
+        <a href="https://tally.so/r/wQb12Y" target="_blank" rel="noopener noreferrer">
+          <button className="glow-button bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white px-8 py-4 rounded-2xl text-lg font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300">
+            Request Early Access
+          </button>
+        </a>
+      </div>
 
-                  <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto lg:mx-0 text-slate-600">
-                    We're here to prove that students aren't just the future—they're the present. We're giving them the
-                    tools and support to create change, because, who would've guessed? They know what they're doing.
-                  </p>
+      {/* Right side - Previews */}
+      <div className="w-full lg:w-1/2 flex flex-col md:flex-row gap-6 justify-center lg:justify-end">
+        {/* ClubSync card */}
+        <div className="relative bg-white p-6 rounded-2xl shadow-xl border border-slate-200 w-full max-w-sm aspect-[4/3]">
+          <h3 className="text-xl font-semibold text-purple-700 mb-2">ClubSync</h3>
+          <p className="text-sm text-slate-600">
+            A smarter, faster way to manage your student clubs — stay connected, stay organized.
+          </p>
+        </div>
+        {/* TechBiz card */}
+        <div className="relative bg-white p-6 rounded-2xl shadow-xl border border-slate-200 w-full max-w-sm aspect-[4/3]">
+          <h3 className="text-xl font-semibold text-fuchsia-700 mb-2">TechBiz Challenge</h3>
+          <p className="text-sm text-slate-600">
+            Our annual student innovation competition where ideas turn into real impact.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                  <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-                    <Link href="#tecbiz-competition">
-                      <button className="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 text-white font-medium hover:from-cyan-700 hover:via-purple-700 hover:to-pink-700 shadow-lg hover:shadow-purple-500/20 transform hover:-translate-y-1 transition-all duration-300 relative group">
-                        <span className="relative z-10 flex items-center">
-                          TecBiz Competition
-                          <Zap className="ml-2 h-5 w-5 inline group-hover:translate-x-1 transition-transform duration-300" />
-                        </span>
-                        <span className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-300"></span>
-                      </button>
-                    </Link>
-
-                    <Link href="#clubsync">
-                      <button className="px-8 py-4 rounded-full bg-white/20 backdrop-blur-sm text-slate-800 border border-slate-300 font-medium hover:bg-white/30 shadow-lg transform hover:-translate-y-1 transition-all duration-300 relative group">
-                        <span className="relative z-10 flex items-center">
-                          Discover ClubSync
-                          <ArrowRight className="ml-2 h-5 w-5 inline group-hover:translate-x-1 transition-transform duration-300" />
-                        </span>
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Right side - ClubSync Video Promo */}
-                <div className="w-full lg:w-1/2">
-                  <div className="relative bg-white p-8 rounded-3xl shadow-xl border border-slate-100 card-hover-effect group">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 rounded-[1.5rem] blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                    <div className="relative z-10">
-                      <div className="flex items-center mb-6">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center mr-4">
-                          <Smartphone className="w-6 h-6 text-white" />
-                        </div>
-                        <div>
-                          <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500">
-                            ClubSync
-                          </h3>
-                          <p className="text-slate-600">Launching October 2025</p>
-                        </div>
-                      </div>
-
-                      <div className="relative rounded-2xl overflow-hidden mb-6 bg-gradient-to-br from-indigo-100 to-purple-100 aspect-video flex items-center justify-center group cursor-pointer">
-                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-pink-500/10"></div>
-                        <div className="relative z-10 text-center">
-                          <div className="w-16 h-16 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
-                            <Play className="w-8 h-8 text-purple-600 ml-1" />
-                          </div>
-                          <p className="text-slate-700 font-medium">Watch ClubSync Preview</p>
-                          <p className="text-sm text-slate-500">Coming Soon</p>
-                        </div>
-                      </div>
-
-                      <div className="space-y-4">
-                        <div className="flex items-center p-3 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl">
-                          <Globe className="w-5 h-5 text-cyan-600 mr-3" />
-                          <span className="text-slate-700">Connect all student clubs in one platform</span>
-                        </div>
-                        <div className="flex items-center p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl">
-                          <MessageSquare className="w-5 h-5 text-purple-600 mr-3" />
-                          <span className="text-slate-700">Streamlined communication and collaboration</span>
-                        </div>
-                        <div className="flex items-center p-3 bg-gradient-to-r from-pink-50 to-rose-50 rounded-xl">
-                          <Users className="w-5 h-5 text-pink-600 mr-3" />
-                          <span className="text-slate-700">Enhanced leadership and event management</span>
-                        </div>
-                      </div>
-
-                      <div className="mt-6 p-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl text-white text-center">
-                        <p className="font-bold mb-2">🎯 Closed Beta Now Open!</p>
-                        <p className="text-sm text-white/90">Students and clubs can request early access</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2">
-                <div className="w-6 h-10 border-2 border-slate-400 rounded-full flex justify-center p-1">
-                  <div className="w-1 h-2 bg-slate-600 rounded-full animate-bounce"></div>
-                </div>
-              </div>
-            </div>
-          </section>
 
           {/* Stats Section */}
           <section id="about" className="py-24 relative overflow-hidden">
@@ -2055,5 +1992,6 @@ export default function Component() {
     </div>
   )
 }
+
 
 
