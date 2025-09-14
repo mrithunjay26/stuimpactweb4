@@ -585,10 +585,7 @@ export default function Component() {
             <div className="absolute inset-0 -z-10">
               <div className="absolute top-[-10%] left-1/4 w-[600px] h-[600px] bg-white/20 rounded-full blur-3xl animate-pulse"></div>
               <div className="absolute bottom-[-10%] right-1/4 w-[800px] h-[800px] bg-fuchsia-300/30 rounded-full blur-3xl animate-pulse"></div>
-              <div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-      w-[1000px] h-[1000px] bg-purple-300/20 rounded-full blur-3xl"
-              ></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-purple-300/20 rounded-full blur-3xl"></div>
             </div>
 
             {/* Enhanced sparkles with more movement */}
@@ -2210,6 +2207,7 @@ export default function Component() {
     </div>
   )
 }
+
 
 
 
