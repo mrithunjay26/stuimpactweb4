@@ -30,7 +30,7 @@ import {
   Globe,
   MessageSquare,
 } from "lucide-react"
-
+import { VolumeX, Volume2, Maximize } from 'lucide-react'
 // Dynamic animated background elements
 const GlowingOrb = ({ className }: { className?: string }) => (
   <div className={`absolute rounded-full blur-3xl animate-pulse ${className}`} />
@@ -175,6 +175,28 @@ const SuccessStory = ({
     </div>
   </div>
 )
+
+const [isMuted, setIsMuted] = useState(true)
+const [isPlaying, setIsPlaying] = useState(true)
+const videoRef = useRef<HTMLVideoElement>(null)
+
+// Add these functions
+const toggleMute = () => {
+  if (videoRef.current) {
+    videoRef.current.muted = !isMuted
+    setIsMuted(!isMuted)
+  }
+}
+
+const toggleFullscreen = () => {
+  if (videoRef.current) {
+    if (document.fullscreenElement) {
+      document.exitFullscreen()
+    } else {
+      videoRef.current.requestFullscreen()
+    }
+  }
+}
 
 export default function Component() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -1012,36 +1034,62 @@ export default function Component() {
                       </p>
                     </div>
 
-                    <div className="w-full md:w-1/2">
-                      <div className="relative rounded-2xl overflow-hidden h-full min-h-[400px] bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 flex items-center justify-center">
-                        <div className="text-center p-8">
-                          <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center mb-6 mx-auto">
-                            <Play className="w-12 h-12 text-purple-600 ml-1" />
-                          </div>
-                          <h4 className="text-2xl font-bold text-slate-800 mb-4">ClubSync Demo</h4>
-                          <p className="text-slate-600 mb-6">See how ClubSync transforms club management</p>
-                          <div className="grid grid-cols-2 gap-4 text-sm">
-                            <div className="bg-white/50 p-3 rounded-lg">
-                              <Globe className="w-5 h-5 text-cyan-600 mb-2" />
-                              <span className="text-slate-700">Unified Platform</span>
-                            </div>
-                            <div className="bg-white/50 p-3 rounded-lg">
-                              <MessageSquare className="w-5 h-5 text-purple-600 mb-2" />
-                              <span className="text-slate-700">Smart Communication</span>
-                            </div>
-                            <div className="bg-white/50 p-3 rounded-lg">
-                              <Users className="w-5 h-5 text-pink-600 mb-2" />
-                              <span className="text-slate-700">Cross-Club Events</span>
-                            </div>
-                            <div className="bg-white/50 p-3 rounded-lg">
-                              <Trophy className="w-5 h-5 text-amber-600 mb-2" />
-                              <span className="text-slate-700">Impact Tracking</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    // <CHANGE> Replace demo placeholder with interactive video player
+<div className="w-full md:w-1/2">
+  <div className="relative rounded-2xl overflow-hidden h-full min-h-[400px] bg-black group">
+    <video
+      ref={videoRef}
+      className="w-full h-full object-cover cursor-pointer"
+      onDoubleClick={toggleFullscreen}
+      loop
+      autoPlay
+      muted={isMuted}
+    >
+      <source src="/clubsync-demo.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    
+    {/* Video Controls Overlay */}
+    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          {/* Mute/Unmute Button */}
+          <button
+            onClick={toggleMute}
+            className="p-2 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-black/70 transition-colors"
+          >
+            {isMuted ? (
+              <VolumeX className="w-5 h-5" />
+            ) : (
+              <Volume2 className="w-5 h-5" />
+            )}
+          </button>
+          
+          {/* Fullscreen Button */}
+          <button
+            onClick={toggleFullscreen}
+            className="p-2 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-black/70 transition-colors"
+          >
+            <Maximize className="w-5 h-5" />
+          </button>
+        </div>
+        
+        <div className="text-white text-sm bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full">
+          ClubSync Demo
+        </div>
+      </div>
+    </div>
+    
+    {/* Play indicator for when video is paused */}
+    {!isPlaying && (
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-16 h-16 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center">
+          <Play className="w-8 h-8 text-purple-600 ml-1" />
+        </div>
+      </div>
+    )}
+  </div>
+</div>	
 
                   <div className="grid md:grid-cols-2 gap-10 mb-10">
                     <div className="bg-gradient-to-br from-cyan-50 to-blue-50 p-8 rounded-2xl relative group card-hover-effect">
@@ -2201,6 +2249,7 @@ export default function Component() {
     </div>
   )
 }
+
 
 
 
