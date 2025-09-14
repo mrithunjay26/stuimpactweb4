@@ -580,10 +580,7 @@ export default function Component() {
         
         <main>
           {/* Hero Section - Removed background image, added ClubSync video promo on right */}
-          <section
-            className="relative min-h-screen flex items-center justify-center overflow-hidden 
-  bg-gradient-to-br from-purple-600 via-purple-400 to-fuchsia-500"
-          >
+<section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-500 via-indigo-500 to-fuchsia-400">
             {/* Enhanced background effects */}
             <div className="absolute inset-0 -z-10">
               <div className="absolute top-[-10%] left-1/4 w-[600px] h-[600px] bg-white/20 rounded-full blur-3xl animate-pulse"></div>
@@ -2213,6 +2210,7 @@ export default function Component() {
     </div>
   )
 }
+
 
 
 
