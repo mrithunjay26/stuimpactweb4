@@ -663,7 +663,7 @@ export default function Component() {
           </a>
 
           <a
-            href="#techbiz-competition"
+            href="#tecbiz-competition"
             className="group relative bg-gradient-to-r from-indigo-500 to-violet-500 text-white px-6 py-4 rounded-2xl font-bold text-center hover:shadow-2xl hover:shadow-indigo-500/25 hover:scale-105 transition-all duration-300"
           >
             <div className="flex flex-col items-center gap-2">
@@ -734,13 +734,14 @@ export default function Component() {
           </a>
 
           <a
-            href="https://clubsync.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-purple-700/50 backdrop-blur-sm text-white px-8 py-5 rounded-2xl text-lg font-semibold border-2 border-purple-300/50 hover:bg-purple-600/60 hover:scale-105 transition-all duration-300"
-          >
-            Learn More
-          </a>
+  href="https://clubsync.org"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="relative z-20 bg-purple-700/50 backdrop-blur-sm text-white px-8 py-5 rounded-2xl text-lg font-semibold border-2 border-purple-300/50 hover:bg-purple-600/60 hover:scale-105 transition-all duration-300"
+>
+  Learn More
+</a>
+
         </div>
       </div>
 
@@ -2200,6 +2201,7 @@ export default function Component() {
     </div>
   )
 }
+
 
 
 
