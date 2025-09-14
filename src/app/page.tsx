@@ -516,6 +516,7 @@ export default function Component() {
               {[
                 { name: "Our Mission", href: "/#our-mission" },
                 { name: "StuConnect", href: "/stuconnect" },
+			    { name: "ClubSync", href: "#clubsync" },
                 { name: "Opportunities", href: "/opportunities" },
                 { name: "Our Team", href: "/team" },
                 { name: "Partner With Us", href: "/nonprofits" },
@@ -576,132 +577,295 @@ export default function Component() {
           </div>
         )}
 
+        
         <main>
           {/* Hero Section - Removed background image, added ClubSync video promo on right */}
-         {/* Hero Section - Enhanced with interactive video */}
-<section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-600 via-purple-400 to-fuchsia-500 overflow-hidden">
-  {/* Enhanced background effects */}
-  <div className="absolute inset-0 -z-10">
-    <div className="absolute top-[-10%] left-1/4 w-[600px] h-[600px] bg-white/20 rounded-full blur-3xl animate-pulse"></div>
-    <div className="absolute bottom-[-10%] right-1/4 w-[800px] h-[800px] bg-fuchsia-300/30 rounded-full blur-3xl animate-pulse"></div>
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-purple-300/20 rounded-full blur-3xl"></div>
-  </div>
+          <section
+            className="relative min-h-screen flex items-center justify-center overflow-hidden 
+  bg-gradient-to-br from-purple-600 via-purple-400 to-fuchsia-500"
+          >
+            {/* Enhanced background effects */}
+            <div className="absolute inset-0 -z-10">
+              <div className="absolute top-[-10%] left-1/4 w-[600px] h-[600px] bg-white/20 rounded-full blur-3xl animate-pulse"></div>
+              <div className="absolute bottom-[-10%] right-1/4 w-[800px] h-[800px] bg-fuchsia-300/30 rounded-full blur-3xl animate-pulse"></div>
+              <div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+      w-[1000px] h-[1000px] bg-purple-300/20 rounded-full blur-3xl"
+              ></div>
+            </div>
 
-  {/* Enhanced sparkles with more movement */}
-  <div className="absolute inset-0 -z-0 overflow-visible pointer-events-none">
-    {[...Array(40)].map((_, i) => (
-      <div
-        key={i}
-        className="absolute rounded-full bg-gradient-to-r from-white/60 via-purple-200/80 to-fuchsia-200/60 blur-sm animate-pulse"
-        style={{
-          width: `${Math.random() * 6 + 3}px`,
-          height: `${Math.random() * 6 + 3}px`,
-          top: `${Math.random() * 120 - 10}%`,
-          left: `${Math.random() * 100}%`,
-          animation: `float ${Math.random() * 8 + 6}s ease-in-out infinite`,
-          animationDelay: `${Math.random() * 8}s`,
-        }}
-      />
-    ))}
-  </div>
+            {/* Enhanced sparkles with more movement */}
+            <div className="absolute inset-0 -z-0 pointer-events-none">
+              {[...Array(40)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute rounded-full bg-gradient-to-r from-white/60 via-purple-200/80 to-fuchsia-200/60 blur-sm animate-pulse"
+                  style={{
+                    width: `${Math.random() * 6 + 3}px`,
+                    height: `${Math.random() * 6 + 3}px`,
+                    top: `${Math.random() * 120 - 10}%`,
+                    left: `${Math.random() * 100}%`,
+                    animation: `float ${Math.random() * 8 + 6}s ease-in-out infinite`,
+                    animationDelay: `${Math.random() * 8}s`,
+                  }}
+                />
+              ))}
+            </div>
 
-  <div className="container mx-auto px-6 relative z-10 pt-28">
-    <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-20">
-      {/* Left side - Enhanced Mission */}
-      <div className="w-full lg:w-1/2 text-center lg:text-left space-y-8">
-        <div className="space-y-4">
-          <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight text-white drop-shadow-lg">
-            We Don't Just<br />
-            <span className="bg-gradient-to-r from-yellow-300 via-white to-purple-200 bg-clip-text text-transparent animate-pulse">
-              Create Platforms
-            </span>
-          </h1>
-          <h2 className="text-3xl md:text-4xl font-bold text-purple-100 leading-tight">
-            We <span className="text-yellow-300 font-extrabold">Empower Students</span><br />
-            To Lead & Find Their Path
-          </h2>
-        </div>
-        
-        <p className="text-xl md:text-2xl text-purple-50 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
-          StuImpact creates opportunities that match your interests and passions. From{" "}
-          <span className="font-bold text-yellow-300 bg-purple-800/30 px-2 py-1 rounded-lg">ClubSync</span> connecting you with clubs to{" "}
-          <span className="font-bold text-yellow-300 bg-purple-800/30 px-2 py-1 rounded-lg">TechBiz Challenge</span> launching your innovations.
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-          <a href="https://tally.so/r/wQb12Y" target="_blank" rel="noopener noreferrer">
-            <button className="group relative bg-white text-purple-600 px-10 py-5 rounded-2xl text-xl font-bold shadow-2xl hover:shadow-purple-500/25 hover:scale-110 transition-all duration-300 border-4 border-purple-200">
-              <span className="relative z-10">Start Your Journey</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-purple-300 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-            </button>
-          </a>
-          <button className="bg-purple-800/50 backdrop-blur-sm text-white px-8 py-5 rounded-2xl text-lg font-semibold border-2 border-purple-300/50 hover:bg-purple-700/60 hover:scale-105 transition-all duration-300">
-            Learn More
-          </button>
-        </div>
-      </div>
-
-      {/* Right side - Interactive Video */}
-      <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-        <div 
-          className={`relative transition-all duration-700 ease-in-out cursor-pointer ${
-            videoExpanded ? 'w-full lg:w-[150%]' : 'w-full max-w-md'
-          }`}
-          onClick={() => setVideoExpanded(!videoExpanded)}
-        >
-          <div className="relative bg-white/10 backdrop-blur-lg p-4 rounded-3xl shadow-2xl border border-white/20 hover:shadow-purple-500/30 transition-all duration-300 group">
-            {/* Video container */}
-            <div className="relative aspect-video rounded-2xl overflow-hidden bg-gradient-to-br from-purple-900 to-fuchsia-900">
-              <video
-                className="w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-              >
-                <source src="/clubsync-demo.mp4" type="video/mp4" />
-                {/* Fallback content */}
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-purple-800 to-fuchsia-800">
-                  <div className="text-center text-white p-8">
-                    <div className="w-20 h-20 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
-                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
+            <div className="container mx-auto px-6 relative z-10 pt-28">
+              <div className="grid lg:grid-cols-2 gap-16 items-center">
+                {/* Left Content */}
+                <div className="space-y-8 animate-slide-in-left">
+                  {/* StuImpact Introduction */}
+                  <div className="space-y-6">
+                    <div className="inline-flex items-center gap-2 bg-purple-800/30 backdrop-blur-sm px-4 py-2 rounded-full border border-purple-300/50">
+                      <Sparkles className="w-5 h-5 text-yellow-300" />
+                      <span className="text-purple-100 font-semibold text-sm">Introducing StuImpact</span>
                     </div>
-                    <h3 className="text-2xl font-bold mb-2">ClubSync Demo</h3>
-                    <p className="text-purple-200">See how we're revolutionizing student engagement</p>
+
+                    <h1 className="text-5xl md:text-7xl font-black leading-tight">
+                      <span className="text-white drop-shadow-lg">Empowering</span>
+                      <br />
+                      <span
+                        className="bg-gradient-to-r from-yellow-300 via-white to-purple-200 
+    bg-clip-text text-transparent animate-pulse"
+                      >
+                        Student Leaders
+                      </span>
+                      <br />
+                      <span className="text-white drop-shadow-lg">Across Washington</span>
+                    </h1>
+
+                    <p className="text-xl md:text-2xl text-purple-50 leading-relaxed max-w-2xl">
+                      From{" "}
+                      <span className="font-bold text-yellow-300 bg-purple-800/30 px-2 py-1 rounded-lg">ClubSync</span>
+                      connecting every student organization to
+                      <span className="font-bold text-purple-200 bg-purple-800/30 px-2 py-1 rounded-lg">
+                        mentorships
+                      </span>
+                      , internships, and{" "}
+                      <span className="font-bold text-yellow-300 bg-purple-800/30 px-2 py-1 rounded-lg">
+                        TechBiz 2025
+                      </span>{" "}
+                       - we're building the future of student opportunities.
+                    </p>
+                  </div>
+
+                  {/* Navigation Buttons - Updated to use proper purple/indigo gradient scheme */}
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <a
+                      href="#clubsync"
+                      className="group relative bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-6 py-4 
+  rounded-2xl font-bold text-center hover:shadow-2xl hover:shadow-cyan-500/25 hover:scale-105 transition-all duration-300"
+                    >
+                      <div className="flex flex-col items-center gap-2">
+                        <Smartphone className="w-6 h-6" />
+                        <span className="text-sm">ClubSync</span>
+                        <span className="text-xs opacity-75">Platform</span>
+                      </div>
+                    </a>
+
+                    <a
+                      href="#success-stories"
+                      className="group relative bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-6 py-4 rounded-2xl font-bold text-center hover:shadow-2xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300"
+                    >
+                      <div className="flex flex-col items-center gap-2">
+                        <Award className="w-6 h-6" />
+                        <span className="text-sm">Success</span>
+                        <span className="text-xs opacity-75">Stories</span>
+                      </div>
+                    </a>
+
+                    <a
+                      href="#techbiz-competition"
+                      className="group relative bg-gradient-to-r from-indigo-500 to-violet-500 text-white px-6 py-4 rounded-2xl font-bold text-center hover:shadow-2xl hover:shadow-indigo-500/25 hover:scale-105 transition-all duration-300"
+                    >
+                      <div className="flex flex-col items-center gap-2">
+                        <Trophy className="w-6 h-6" />
+                        <span className="text-sm">TechBiz</span>
+                        <span className="text-xs opacity-75">2025</span>
+                      </div>
+                    </a>
+
+                    <a
+                      href="#services"
+                      className="group relative bg-gradient-to-r from-violet-500 to-purple-500 text-white px-6 py-4 rounded-2xl font-bold text-center hover:shadow-2xl hover:shadow-violet-500/25 hover:scale-105 transition-all duration-300"
+                    >
+                      <div className="flex flex-col items-center gap-2">
+                        <Users className="w-6 h-6" />
+                        <span className="text-sm">Services</span>
+                        <span className="text-xs opacity-75">We Offer</span>
+                      </div>
+                    </a>
+
+                    <a
+                      href="/opportunities"
+                      className="group relative bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-4 rounded-2xl font-bold text-center hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-110 transition-all duration-300 border-4 border-purple-200"
+                    >
+                      <div className="flex flex-col items-center gap-2">
+                        <Briefcase className="w-6 h-6" />
+                        <span className="text-sm">Internships</span>
+                        <span className="text-xs opacity-75">& Jobs</span>
+                      </div>
+                    </a>
+
+                    <a
+                      href="/contact"
+                      className="group relative bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 py-4 rounded-2xl font-bold text-center hover:shadow-2xl hover:shadow-pink-500/25 hover:scale-105 transition-all duration-300"
+                    >
+                      <div className="flex flex-col items-center gap-2">
+                        <Mail className="w-6 h-6" />
+                        <span className="text-sm">Contact</span>
+                        <span className="text-xs opacity-75">Us</span>
+                      </div>
+                    </a>
+                  </div>
+
+                  {/* TechBiz 2025 Highlight - Updated colors to match purple theme */}
+                  <div className="bg-purple-800/30 backdrop-blur-sm border border-purple-300/30 rounded-2xl p-6">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-3 h-3 bg-yellow-300 rounded-full animate-pulse"></div>
+                      <span className="text-yellow-300 font-bold text-lg">TechBiz 2025 - December</span>
+                    </div>
+                    <p className="text-purple-100 text-sm leading-relaxed">
+                      Join us this December for TechBiz 2025, a first-of-its-kind hackathon–business pitch hybrid
+                      presented by StuImpact in partnership with{" "}
+                      <span className="font-bold text-yellow-300">Google</span>. Combining fast-paced innovation with
+                      DECA-style presentations—designed to empower high school students to think like both engineers and
+                      entrepreneurs.
+                    </p>
+                  </div>
+
+                  {/* Main CTA - Updated button colors to match theme */}
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <a href="https://tally.so/r/wQb12Y" target="_blank" rel="noopener noreferrer">
+                      <button className="group relative bg-white text-purple-600 px-10 py-5 rounded-2xl text-xl font-bold shadow-2xl hover:shadow-purple-500/25 hover:scale-110 transition-all duration-300 border-4 border-purple-200">
+                        <span className="relative z-10 flex items-center gap-2">
+                          <Zap className="w-6 h-6" />
+                          Apply for ClubSync
+                        </span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-purple-300 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                      </button>
+                    </a>
+                    <a
+  href="https://clubsync.org"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-purple-800/50 backdrop-blur-sm text-white px-8 py-5 rounded-2xl text-lg font-semibold border-2 border-purple-300/50 hover:bg-purple-700/60 hover:scale-105 transition-all duration-300"
+>
+  Learn More
+</a>
                   </div>
                 </div>
-              </video>
-              
-              {/* Play overlay */}
-              <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
-                  <svg className="w-6 h-6 text-purple-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
+
+                {/* Right Content - Dashboard Mockups - Updated dashboard colors to match purple theme */}
+                <div className="relative animate-slide-in-right">
+                  {/* Main Dashboard Mockup */}
+                  <div className="relative bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-purple-200/50 overflow-hidden transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <div className="bg-gradient-to-r from-purple-600 to-indigo-600 p-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                        <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                        <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                        <span className="text-white font-semibold ml-4">ClubSync Dashboard</span>
+                      </div>
+                    </div>
+
+                    <div className="p-6 space-y-4">
+                      {/* Dashboard Header */}
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-2xl font-bold text-gray-900">Welcome back, Alex!</h3>
+                        <div className="flex items-center gap-2 bg-purple-100 px-3 py-1 rounded-full">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+                          <span className="text-purple-700 text-sm font-medium">5 clubs active</span>
+                        </div>
+                      </div>
+
+                      {/* Quick Stats */}
+                      <div className="grid grid-cols-3 gap-4">
+                        <div className="bg-gradient-to-br from-purple-50 to-indigo-50 p-4 rounded-xl border border-purple-100">
+                          <div className="text-2xl font-bold text-purple-600">24</div>
+                          <div className="text-sm text-purple-700">Events This Month</div>
+                        </div>
+                        <div className="bg-gradient-to-br from-indigo-50 to-blue-50 p-4 rounded-xl border border-indigo-100">
+                          <div className="text-2xl font-bold text-indigo-600">156</div>
+                          <div className="text-sm text-indigo-700">Active Members</div>
+                        </div>
+                        <div className="bg-gradient-to-br from-blue-50 to-violet-50 p-4 rounded-xl border border-blue-100">
+                          <div className="text-2xl font-bold text-blue-600">89%</div>
+                          <div className="text-sm text-blue-700">Attendance Rate</div>
+                        </div>
+                      </div>
+
+                      {/* Recent Activity */}
+                      <div className="space-y-3">
+                        <h4 className="font-semibold text-gray-800">Recent Activity</h4>
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                            <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full flex items-center justify-center">
+                              <Calendar className="w-4 h-4 text-white" />
+                            </div>
+                            <div>
+                              <div className="font-medium text-gray-900">Chess Club Meeting</div>
+                              <div className="text-sm text-gray-600">Tomorrow at 3:30 PM</div>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                            <div className="w-8 h-8 bg-gradient-to-r from-indigo-400 to-blue-400 rounded-full flex items-center justify-center">
+                              <Users className="w-4 h-4 text-white" />
+                            </div>
+                            <div>
+                              <div className="font-medium text-gray-900">Drama Club Auditions</div>
+                              <div className="text-sm text-gray-600">Friday at 4:00 PM</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Floating Calendar Widget */}
+                  <div className="absolute -top-8 -right-8 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-purple-200/50 p-4 transform -rotate-6 hover:rotate-0 transition-transform duration-500">
+                    <div className="text-center">
+                      <div className="text-sm font-semibold text-purple-600 mb-2">October 2024</div>
+                      <div className="grid grid-cols-7 gap-1 text-xs">
+                        {["S", "M", "T", "W", "T", "F", "S"].map((day, i) => (
+                          <div key={i} className="w-6 h-6 flex items-center justify-center font-medium text-gray-500">
+                            {day}
+                          </div>
+                        ))}
+                        {Array.from({ length: 31 }, (_, i) => (
+                          <div
+                            key={i}
+                            className={`w-6 h-6 flex items-center justify-center text-xs rounded ${
+                              [5, 12, 18, 25].includes(i + 1)
+                                ? "bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold"
+                                : "text-gray-700 hover:bg-purple-50"
+                            }`}
+                          >
+                            {i + 1}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Floating TechBiz Notification */}
+                  <div className="absolute -bottom-4 -left-8 bg-gradient-to-r from-purple-500 to-indigo-500 text-white p-4 rounded-2xl shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                        <Trophy className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <div className="font-bold text-sm">TechBiz 2025</div>
+                        <div className="text-xs opacity-90">Registration Open!</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            
-            {/* Video info */}
-            <div className="mt-4 text-center">
-              <h3 className="text-xl font-bold text-white mb-2">ClubSync in Action</h3>
-              <p className="text-purple-100 text-sm">
-                {videoExpanded ? 'Click to minimize' : 'Click to expand and see the full experience'}
-              </p>
-            </div>
-          </div>
-          
-          {/* Glow effect */}
-          <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/30 to-fuchsia-500/30 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
+          </section>
           {/* Stats Section */}
           <section id="about" className="py-24 relative overflow-hidden">
             <div className="container mx-auto px-4 relative z-10">
@@ -1186,7 +1350,7 @@ export default function Component() {
             <div className="container mx-auto px-4 relative z-10">
               <h2 className="text-4xl font-bold mb-16 text-center">
                 <span className="gradient-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-                  TecBiz Competition - December 2025
+                  TechBiz Competition - December 2025
                 </span>
               </h2>
 
@@ -1224,7 +1388,7 @@ export default function Component() {
                       </h3>
 
                       <p className="text-xl mb-6 text-slate-600 leading-relaxed">
-                        Welcome to the TecBiz Competition, where innovation meets impact! Teams of 7 students, led by a
+                        Welcome to the TechBiz Competition, where innovation meets impact! Teams of 8-10 students, led by a
                         CEO, work together to create groundbreaking software solutions and business plans that address
                         real-world challenges. <strong>Mark your calendars for December 2025!</strong>
                       </p>
@@ -1327,7 +1491,7 @@ export default function Component() {
                       </div>
 
                       <p className="text-slate-700 mb-4">
-                        Winners of the TecBiz Competition gain automatic admission into Catalyst, our premier
+                        Winners of the TechBiz Competition gain automatic admission into Catalyst, our premier
                         accelerator program that helps student developers bring their products to market. Catalyst
                         offers comprehensive support including:
                       </p>
@@ -1418,10 +1582,10 @@ export default function Component() {
                   <div className="flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-indigo-600 to-purple-600 p-6 rounded-2xl text-white">
                     <div>
                       <h3 className="text-2xl font-bold mb-2">Ready to innovate and make an impact?</h3>
-                      <p className="text-white/80">Applications open in November 2025. Limited spots available!</p>
+                      <p className="text-white/80">Applications are open! Limited spots available!</p>
                     </div>
 
-                    <Link href="/">
+                    <Link href="https://luma.com/swsk67on">
                       <button className="mt-4 md:mt-0 px-8 py-4 rounded-full bg-white text-indigo-600 font-medium hover:bg-white/90 shadow-lg transform hover:-translate-y-1 transition-all duration-300 relative group">
                         <span className="relative z-10 flex items-center">
                           Pre-Register Now
@@ -2049,6 +2213,7 @@ export default function Component() {
     </div>
   )
 }
+
 
 
 
