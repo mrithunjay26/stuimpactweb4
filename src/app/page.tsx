@@ -30,7 +30,7 @@ import {
   Globe,
   MessageSquare,
 } from "lucide-react"
-import { VolumeX, Volume2, Maximize } from 'lucide-react'
+
 // Dynamic animated background elements
 const GlowingOrb = ({ className }: { className?: string }) => (
   <div className={`absolute rounded-full blur-3xl animate-pulse ${className}`} />
@@ -175,28 +175,6 @@ const SuccessStory = ({
     </div>
   </div>
 )
-
-const [isMuted, setIsMuted] = useState(true)
-const [isPlaying, setIsPlaying] = useState(true)
-const videoRef = useRef<HTMLVideoElement>(null)
-
-// Add these functions
-const toggleMute = () => {
-  if (videoRef.current) {
-    videoRef.current.muted = !isMuted
-    setIsMuted(!isMuted)
-  }
-}
-
-const toggleFullscreen = () => {
-  if (videoRef.current) {
-    if (document.fullscreenElement) {
-      document.exitFullscreen()
-    } else {
-      videoRef.current.requestFullscreen()
-    }
-  }
-}
 
 export default function Component() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -609,24 +587,9 @@ export default function Component() {
     <div className="absolute bottom-[-10%] right-1/4 w-[800px] h-[800px] bg-fuchsia-300/30 rounded-full blur-3xl animate-pulse"></div>
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-purple-300/20 rounded-full blur-3xl"></div>
   </div>
+  
 
-  {/* Enhanced sparkles with more movement */}
-  <div className="absolute inset-0 -z-0 pointer-events-none">
-    {[...Array(40)].map((_, i) => (
-      <div
-        key={i}
-        className="absolute rounded-full bg-gradient-to-r from-white/60 via-purple-200/80 to-fuchsia-200/60 blur-sm animate-pulse"
-        style={{
-          width: `${Math.random() * 6 + 3}px`,
-          height: `${Math.random() * 6 + 3}px`,
-          top: `${Math.random() * 120 - 10}%`,
-          left: `${Math.random() * 100}%`,
-          animation: `float ${Math.random() * 8 + 6}s ease-in-out infinite`,
-          animationDelay: `${Math.random() * 8}s`,
-        }}
-      />
-    ))}
-  </div>
+  
 
   <div className="container mx-auto px-6 relative z-10 pt-28">
     <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -1034,62 +997,36 @@ export default function Component() {
                       </p>
                     </div>
 
-                    // <CHANGE> Replace demo placeholder with interactive video player
-<div className="w-full md:w-1/2">
-  <div className="relative rounded-2xl overflow-hidden h-full min-h-[400px] bg-black group">
-    <video
-      ref={videoRef}
-      className="w-full h-full object-cover cursor-pointer"
-      onDoubleClick={toggleFullscreen}
-      loop
-      autoPlay
-      muted={isMuted}
-    >
-      <source src="/clubsync-demo.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-    
-    {/* Video Controls Overlay */}
-    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          {/* Mute/Unmute Button */}
-          <button
-            onClick={toggleMute}
-            className="p-2 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-black/70 transition-colors"
-          >
-            {isMuted ? (
-              <VolumeX className="w-5 h-5" />
-            ) : (
-              <Volume2 className="w-5 h-5" />
-            )}
-          </button>
-          
-          {/* Fullscreen Button */}
-          <button
-            onClick={toggleFullscreen}
-            className="p-2 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-black/70 transition-colors"
-          >
-            <Maximize className="w-5 h-5" />
-          </button>
-        </div>
-        
-        <div className="text-white text-sm bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full">
-          ClubSync Demo
-        </div>
-      </div>
-    </div>
-    
-    {/* Play indicator for when video is paused */}
-    {!isPlaying && (
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-16 h-16 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center">
-          <Play className="w-8 h-8 text-purple-600 ml-1" />
-        </div>
-      </div>
-    )}
-  </div>
-</div>	
+                    <div className="w-full md:w-1/2">
+                      <div className="relative rounded-2xl overflow-hidden h-full min-h-[400px] bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 flex items-center justify-center">
+                        <div className="text-center p-8">
+                          <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center mb-6 mx-auto">
+                            <Play className="w-12 h-12 text-purple-600 ml-1" />
+                          </div>
+                          <h4 className="text-2xl font-bold text-slate-800 mb-4">ClubSync Demo</h4>
+                          <p className="text-slate-600 mb-6">See how ClubSync transforms club management</p>
+                          <div className="grid grid-cols-2 gap-4 text-sm">
+                            <div className="bg-white/50 p-3 rounded-lg">
+                              <Globe className="w-5 h-5 text-cyan-600 mb-2" />
+                              <span className="text-slate-700">Unified Platform</span>
+                            </div>
+                            <div className="bg-white/50 p-3 rounded-lg">
+                              <MessageSquare className="w-5 h-5 text-purple-600 mb-2" />
+                              <span className="text-slate-700">Smart Communication</span>
+                            </div>
+                            <div className="bg-white/50 p-3 rounded-lg">
+                              <Users className="w-5 h-5 text-pink-600 mb-2" />
+                              <span className="text-slate-700">Cross-Club Events</span>
+                            </div>
+                            <div className="bg-white/50 p-3 rounded-lg">
+                              <Trophy className="w-5 h-5 text-amber-600 mb-2" />
+                              <span className="text-slate-700">Impact Tracking</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
                   <div className="grid md:grid-cols-2 gap-10 mb-10">
                     <div className="bg-gradient-to-br from-cyan-50 to-blue-50 p-8 rounded-2xl relative group card-hover-effect">
@@ -1260,6 +1197,116 @@ export default function Component() {
               </div>
             </div>
           </section>
+          <section className="relative">
+            {/* Toggle Button */}
+            <button
+              onClick={() => {
+                const panel = document.getElementById("floating-nav");
+                panel?.classList.toggle("translate-x-0");
+                panel?.classList.toggle("-translate-x-full");
+              }}
+              className="fixed top-1/2 left-0 z-50 p-4 rounded-r-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg transition-transform duration-300"
+            >
+              ☰
+            </button>
+
+            {/* Navigation Panel */}
+            <div
+              id="floating-nav"
+              className="fixed top-0 left-0 h-full z-40 w-72 bg-white/95 backdrop-blur-md border border-slate-200 shadow-2xl rounded-r-2xl p-5 -translate-x-full transition-transform duration-300"
+            >
+              {/* Close Button */}
+              <div className="flex justify-end mb-4">
+                <button
+                  onClick={() => {
+                    const panel = document.getElementById("floating-nav");
+                    panel?.classList.add("-translate-x-full");
+                    panel?.classList.remove("translate-x-0");
+                  }}
+                  className="text-slate-500 hover:text-slate-800 transition-colors"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <h3 className="text-lg font-bold mb-4 text-purple-600">Quick Navigation</h3>
+
+              <div className="space-y-6">
+                {/* Programs */}
+                <div>
+                  <h4 className="font-semibold text-slate-700 mb-2 flex items-center">
+                    🏆 Programs
+                  </h4>
+                  <ul className="space-y-1 text-sm text-slate-600">
+                    <li>
+                      <a href="#clubsync" className="block px-3 py-1 rounded-lg hover:bg-purple-50 hover:text-purple-700 transition-colors">
+                        ClubSync
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#tecbiz-competition" className="block px-3 py-1 rounded-lg hover:bg-purple-50 hover:text-purple-700 transition-colors">
+                        TechBiz Competition
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#openpath" className="block px-3 py-1 rounded-lg hover:bg-purple-50 hover:text-purple-700 transition-colors">
+                        OpenPath Platform
+                      </a>
+                    </li>
+                    
+                  </ul>
+                </div>
+
+                {/* Impact & Stories */}
+                <div>
+                  <h4 className="font-semibold text-slate-700 mb-2 flex items-center">
+                    ⭐ Impact & Stories
+                  </h4>
+                  <ul className="space-y-1 text-sm text-slate-600">
+                    <li>
+                      <a href="#success-stories" className="block px-3 py-1 rounded-lg hover:bg-amber-50 hover:text-amber-700 transition-colors">
+                        Success Stories
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#our-mission" className="block px-3 py-1 rounded-lg hover:bg-amber-50 hover:text-amber-700 transition-colors">
+                        Our Mission
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Connections */}
+                <div>
+                  <h4 className="font-semibold text-slate-700 mb-2 flex items-center">
+                    🤝 Connections
+                  </h4>
+                  <ul className="space-y-1 text-sm text-slate-600">
+                    <li>
+                      <a href="/nonprofits" className="block px-3 py-1 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition-colors">
+                        Partnerships
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/annual-reports" className="block px-3 py-1 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition-colors">
+                        Annual Reports
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/contact" className="block px-3 py-1 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition-colors">
+                        Contact Form
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-6 text-xs text-slate-400 text-center border-t border-slate-200 pt-3">
+                © 2025 StuImpact | Accessibility Tools
+              </div>
+            </div>
+          </section>
+
 
           {/* TecBiz Competition Section - Updated to December 2025 */}
           
@@ -1634,6 +1681,238 @@ export default function Component() {
               </div>
             </div>
           </section>
+          {/* OpenPath Section */}
+          <section id="openpath" className="py-28 relative overflow-hidden">
+            <div className="container mx-auto px-4 relative z-10">
+              <h2 className="text-5xl font-bold mb-10 text-center">
+                <span className="gradient-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+                  Transform Education with OpenPath
+                </span>
+              </h2>
+              <p className="text-center text-slate-600 text-xl max-w-3xl mx-auto mb-16">
+                A comprehensive, open-source platform empowering educators, tutors, and organizations to create impactful learning experiences. 
+                Revolutionizing education through innovative technology, personalized learning, and seamless collaboration tools.
+              </p>
+
+              {/* Overview Card */}
+              <div className="bg-white p-10 rounded-3xl shadow-xl border border-slate-100 mb-16 relative group card-hover-effect">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-[1.5rem] blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <div className="relative grid md:grid-cols-2 gap-12 items-center">
+                  {/* Left content */}
+                  <div className="space-y-6">
+                    <div className="flex items-center mb-4">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center mr-4">
+                        <Globe className="w-8 h-8 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
+                          OpenPath
+                        </h3>
+                        <p className="text-slate-600">Empowering education through open technology</p>
+                      </div>
+                    </div>
+
+                    <p className="text-lg text-slate-600 leading-relaxed">
+                      OpenPath provides a unified digital classroom experience — connecting teachers, tutors, and organizations 
+                      to their learners through interactive tools, analytics, and seamless communication.  
+                      Whether you're managing small tutoring sessions or coordinating large-scale nonprofit programs, OpenPath adapts to your educational needs.
+                    </p>
+
+                    <div className="grid sm:grid-cols-2 gap-4 text-sm">
+                      {[
+                        { icon: "📚", title: "Course Management", desc: "Create and manage courses effortlessly" },
+                        { icon: "💬", title: "Real-Time Chat", desc: "Connect with students instantly" },
+                        { icon: "📝", title: "Assignment Tracking", desc: "Monitor student progress seamlessly" },
+                        { icon: "🎥", title: "Video Meetings", desc: "Integrated video conferencing for live learning" },
+                        { icon: "📊", title: "Analytics", desc: "Track performance and learning outcomes" },
+                      ].map((item, i) => (
+                        <div key={i} className="bg-gradient-to-br from-blue-50 to-purple-50 p-4 rounded-xl border border-blue-100">
+                          <div className="text-2xl mb-1">{item.icon}</div>
+                          <h4 className="font-semibold text-slate-800">{item.title}</h4>
+                          <p className="text-slate-600 text-sm">{item.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-wrap gap-4 pt-6">
+                      <Link
+                        href="https://studenthubdemo.onrender.com/"
+                        className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white font-medium hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 shadow-lg transform hover:-translate-y-1 transition-all duration-300 text-center"
+                      >
+                        Get Started
+                      </Link>
+
+                    </div>
+                  </div>
+
+                  {/* Right image / mockup */}
+                  <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 flex items-center justify-center p-8">
+                    <div className="text-center max-w-md">
+                      <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-white/80 flex items-center justify-center shadow-lg">
+                        <Sparkles className="w-12 h-12 text-blue-600" />
+                      </div>
+                      <h4 className="text-2xl font-bold text-slate-800 mb-2">Education Reimagined</h4>
+                      <p className="text-slate-600">
+                        OpenPath bridges gaps in accessibility by combining open-source flexibility with professional-grade
+                        features, giving every educator the ability to build and manage their own digital learning environment.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Why Choose OpenPath */}
+              <div className="grid md:grid-cols-3 gap-8 mb-20">
+                {[
+                  { icon: "🎯", title: "Fully Customizable", desc: "Tailor every feature, UI element, and workflow. Full source-code access gives you complete control." },
+                  { icon: "💰", title: "Cost-Effective", desc: "Built with free Firebase hosting in mind — no license fees, no vendor lock-in, and minimal operating costs." },
+                  { icon: "🚀", title: "Quick Setup", desc: "Launch your digital classroom in minutes using preconfigured templates and step-by-step setup guides." },
+                  { icon: "🔒", title: "Secure & Private", desc: "Full control over data, access, and content. Self-hosted with secure authentication and admin moderation tools." },
+                  { icon: "📱", title: "Mobile Responsive", desc: "Optimized for all devices — from laptops to smartphones, learning goes wherever your students go." },
+                  { icon: "🤝", title: "Community Support", desc: "Join an open-source educator community sharing resources, tips, and custom integrations." },
+                ].map((item, i) => (
+                  <div key={i} className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg border border-slate-100 card-hover-effect text-center">
+                    <div className="text-3xl mb-3">{item.icon}</div>
+                    <h4 className="font-semibold text-lg text-slate-800 mb-2">{item.title}</h4>
+                    <p className="text-slate-600 text-sm">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Use Cases */}
+              <h3 className="text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+                Perfect For Every Educational Need
+              </h3>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[
+                  {
+                    title: "Private Tutors & Freelance Educators",
+                    points: [
+                      "Track student progress and analytics",
+                      "Built-in video conferencing",
+                      "Assignment and grading tools",
+                      "Secure file sharing & libraries",
+                      "Professional branding options",
+                    ],
+                  },
+                  {
+                    title: "Educational Nonprofits",
+                    points: [
+                      "Multi-program management tools",
+                      "Volunteer teacher coordination",
+                      "Impact tracking & reporting",
+                      "Resource sharing between programs",
+                      "Cost-effective scalability",
+                    ],
+                  },
+                  {
+                    title: "Small Educational Companies",
+                    points: [
+                      "Multi-instructor course management",
+                      "White-label customization options",
+                      "Admin controls & user management",
+                      "Integration with existing tools",
+                      "Scalable infrastructure",
+                    ],
+                  },
+                  {
+                    title: "Community Learning Centers",
+                    points: [
+                      "Organize courses for all age groups",
+                      "Volunteer integration & collaboration",
+                      "Offline-friendly features",
+                      "Easy admin for non-technical staff",
+                    ],
+                  },
+                  {
+                    title: "Corporate Training Programs",
+                    points: [
+                      "Track employee progress & certifications",
+                      "Integrate with HR systems",
+                      "Compliance and policy training tools",
+                      "Custom analytics for management",
+                    ],
+                  },
+                  {
+                    title: "Homeschool Networks",
+                    points: [
+                      "Parent-teacher collaboration features",
+                      "Curriculum sharing & scheduling",
+                      "Multi-family management tools",
+                      "Child-safe communication",
+                    ],
+                  },
+                ].map((useCase, i) => (
+                  <div key={i} className="bg-gradient-to-br from-indigo-50 to-blue-50 p-6 rounded-2xl border border-indigo-100 card-hover-effect">
+                    <h4 className="font-bold text-lg text-indigo-700 mb-3">{useCase.title}</h4>
+                    <ul className="space-y-2 text-slate-600 text-sm">
+                      {useCase.points.map((point, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <span className="text-blue-500 mr-2">•</span> {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+
+              {/* Hosting & Support */}
+              <div className="mt-20 bg-white p-10 rounded-3xl shadow-xl border border-slate-100 relative group card-hover-effect">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-[1.5rem] blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <div className="relative">
+                  <h3 className="text-3xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+                    Hosting & Support Information
+                  </h3>
+                  <p className="text-slate-600 mb-6 text-lg">
+                    <strong>OpenPath</strong> is an open-source educational software initiative. You receive the complete
+                    codebase, documentation, and guidance to deploy your own platform — while maintaining full ownership and control.
+                  </p>
+
+                  <div className="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                      <h4 className="font-semibold text-indigo-600 mb-2">What We Provide</h4>
+                      <ul className="text-slate-600 space-y-2">
+                        <li>✓ Full source code and setup guides</li>
+                        <li>✓ Technical and customization assistance</li>
+                        <li>✓ Cost-optimization recommendations</li>
+                        <li>✓ Community and developer resources</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-indigo-600 mb-2">What You Handle</h4>
+                      <ul className="text-slate-600 space-y-2">
+                        <li>• Web hosting (Render recommended)</li>
+                        <li>• Database (Firebase free tier)</li>
+                        <li>• Domain registration & SSL</li>
+                        <li>• Maintenance & updates</li>
+                        <li>• End-user support</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <p className="text-slate-600 mb-6">
+                    Need help? Reach out for setup or customization support:
+                  </p>
+                  <ul className="text-slate-700 mb-8">
+                    <li>📧 <strong>Email:</strong> mrithunjay@stuimpact.org</li>
+                    <li>🌐 <strong>Website:</strong> <a href="https://stuimpact.com" className="text-indigo-600 hover:underline">stuimpact.com</a></li>
+                  </ul>
+
+                  <p className="text-center text-slate-600 italic">
+                    Empowering educational excellence through open technology and community collaboration.
+                  </p>
+                </div>
+              </div>
+
+              <div className="text-center mt-16 text-slate-500 text-sm">
+                © 2024 OpenPath — Open Source Educational Platform | Built with ❤️ by StuImpact
+              </div>
+            </div>
+          </section>
+
 
           {/* ... existing code for remaining sections ... */}
 
@@ -2249,8 +2528,6 @@ export default function Component() {
     </div>
   )
 }
-
-
 
 
 
