@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
+import dynamic from "next/dynamic"
 import {
   X,
   ChevronLeft,
@@ -13,13 +14,19 @@ import {
   ArrowRight,
 } from "lucide-react"
 import Link from "next/link"
-import { Document, Page, pdfjs } from "react-pdf"
-import "react-pdf/dist/Page/AnnotationLayer.css"
-import "react-pdf/dist/Page/TextLayer.css"
-export const dynamic = "force-dynamic"
 
-// Configure PDF.js worker
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
+const Document = dynamic(() => import("react-pdf").then((mod) => mod.Document), {
+  ssr: false,
+  loading: () => (
+    <div className="flex items-center justify-center p-20">
+      <div className="text-white text-lg">Loading PDF viewer...</div>
+    </div>
+  ),
+})
+
+const Page = dynamic(() => import("react-pdf").then((mod) => mod.Page), {
+  ssr: false,
+})
 
 // Annual reports data - add your PDFs to the public folder
 const annualReports = [
@@ -27,9 +34,16 @@ const annualReports = [
     year: 2024,
     title: "2024 Annual Report",
     description: "Our most impactful year yet",
-    pdfUrl: "/annual-reports/2025-report.pdf",
+    pdfUrl: "/annual-reports/2024-report.pdf",
     highlights: ["10,000+ students reached", "50+ schools partnered", "95% satisfaction rate"],
     isFeatured: true,
+  },
+  {
+    year: 2023,
+    title: "2023 Annual Report",
+    description: "Building foundations for lasting change",
+    pdfUrl: "/annual-reports/2023-report.pdf",
+    highlights: ["5,000+ students engaged", "25+ partner organizations", "Launch of ClubSync"],
   },
 ]
 
@@ -41,9 +55,17 @@ export default function AnnualReportsPage() {
   const [scale, setScale] = useState(1.0)
   const viewerRef = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
+    setIsMounted(true)
+
+    if (typeof window !== "undefined") {
+      import("react-pdf").then((pdfjs) => {
+        pdfjs.pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.pdfjs.version}/build/pdf.worker.min.mjs`
+      })
+    }
   }, [])
 
   // Handle keyboard navigation
@@ -122,7 +144,7 @@ export default function AnnualReportsPage() {
             transform: translateY(-30px) translateX(-10px);
           }
         }
-
+        
         @keyframes slideUp {
           from {
             opacity: 0;
@@ -153,7 +175,7 @@ export default function AnnualReportsPage() {
             background-position: 1000px 0;
           }
         }
-
+        
         .animate-float {
           animation: float 15s ease-in-out infinite;
         }
@@ -171,7 +193,7 @@ export default function AnnualReportsPage() {
           background-size: 1000px 100%;
           animation: shimmer 3s infinite;
         }
-
+        
         @keyframes pageFlip {
           0% {
             transform: rotateY(0deg);
@@ -452,7 +474,7 @@ export default function AnnualReportsPage() {
       </main>
 
       {/* PDF Viewer Modal */}
-      {selectedReport && (
+      {selectedReport && isMounted && (
         <div
           className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
           role="dialog"
@@ -489,48 +511,37 @@ export default function AnnualReportsPage() {
             </div>
 
             {/* PDF Display */}
-            <div
-              ref={viewerRef}
-              className="flex-1 overflow-auto flex items-center justify-center p-8 bg-slate-800"
-            >
-              {typeof window !== "undefined" ? (
-                <div className="relative">
-                  {loading && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-slate-900/50 rounded-lg">
-                      <div className="text-white text-lg">Loading PDF...</div>
+            <div ref={viewerRef} className="flex-1 overflow-auto flex items-center justify-center p-8 bg-slate-800">
+              <div className="relative">
+                {loading && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-slate-900/50 rounded-lg">
+                    <div className="text-white text-lg">Loading PDF...</div>
+                  </div>
+                )}
+                <Document
+                  file={selectedReport.pdfUrl}
+                  onLoadSuccess={onDocumentLoadSuccess}
+                  loading={
+                    <div className="flex items-center justify-center p-20">
+                      <div className="text-white text-lg">Loading document...</div>
                     </div>
-                  )}
-                  <Document
-                    file={selectedReport.pdfUrl}
-                    onLoadSuccess={onDocumentLoadSuccess}
-                    loading={
-                      <div className="flex items-center justify-center p-20">
-                        <div className="text-white text-lg">Loading document...</div>
-                      </div>
-                    }
-                    error={
-                      <div className="flex items-center justify-center p-20">
-                        <div className="text-red-400 text-lg">
-                          Failed to load PDF. Please try downloading instead.
-                        </div>
-                      </div>
-                    }
-                  >
-                    <Page
-                      pageNumber={pageNumber}
-                      scale={scale}
-                      className="shadow-2xl page-flip-enter"
-                      renderTextLayer
-                      renderAnnotationLayer
-                    />
-                  </Document>
-                </div>
-              ) : (
-                // Fallback for server-side render
-                <div className="text-slate-400 text-center">Loading viewer...</div>
-              )}
+                  }
+                  error={
+                    <div className="flex items-center justify-center p-20">
+                      <div className="text-red-400 text-lg">Failed to load PDF. Please try downloading instead.</div>
+                    </div>
+                  }
+                >
+                  <Page
+                    pageNumber={pageNumber}
+                    scale={scale}
+                    className="shadow-2xl page-flip-enter"
+                    renderTextLayer={true}
+                    renderAnnotationLayer={true}
+                  />
+                </Document>
+              </div>
             </div>
-
 
             {/* Navigation Controls */}
             <div className="bg-slate-900 text-white px-6 py-4 flex items-center justify-center gap-6 border-t border-white/10">
