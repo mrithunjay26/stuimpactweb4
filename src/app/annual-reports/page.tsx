@@ -34,16 +34,9 @@ const annualReports = [
     year: 2024,
     title: "2024 Annual Report",
     description: "Our most impactful year yet",
-    pdfUrl: "/annual-reports/2024-report.pdf",
+    pdfUrl: "/annual-reports/2025-report.pdf",
     highlights: ["10,000+ students reached", "50+ schools partnered", "95% satisfaction rate"],
     isFeatured: true,
-  },
-  {
-    year: 2023,
-    title: "2023 Annual Report",
-    description: "Building foundations for lasting change",
-    pdfUrl: "/annual-reports/2023-report.pdf",
-    highlights: ["5,000+ students engaged", "25+ partner organizations", "Launch of ClubSync"],
   },
 ]
 
