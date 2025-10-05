@@ -488,37 +488,48 @@ export default function AnnualReportsPage() {
             </div>
 
             {/* PDF Display */}
-            <div ref={viewerRef} className="flex-1 overflow-auto flex items-center justify-center p-8 bg-slate-800">
-              <div className="relative">
-                {loading && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-slate-900/50 rounded-lg">
-                    <div className="text-white text-lg">Loading PDF...</div>
-                  </div>
-                )}
-                <Document
-                  file={selectedReport.pdfUrl}
-                  onLoadSuccess={onDocumentLoadSuccess}
-                  loading={
-                    <div className="flex items-center justify-center p-20">
-                      <div className="text-white text-lg">Loading document...</div>
+            <div
+              ref={viewerRef}
+              className="flex-1 overflow-auto flex items-center justify-center p-8 bg-slate-800"
+            >
+              {typeof window !== "undefined" ? (
+                <div className="relative">
+                  {loading && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-slate-900/50 rounded-lg">
+                      <div className="text-white text-lg">Loading PDF...</div>
                     </div>
-                  }
-                  error={
-                    <div className="flex items-center justify-center p-20">
-                      <div className="text-red-400 text-lg">Failed to load PDF. Please try downloading instead.</div>
-                    </div>
-                  }
-                >
-                  <Page
-                    pageNumber={pageNumber}
-                    scale={scale}
-                    className="shadow-2xl page-flip-enter"
-                    renderTextLayer={true}
-                    renderAnnotationLayer={true}
-                  />
-                </Document>
-              </div>
+                  )}
+                  <Document
+                    file={selectedReport.pdfUrl}
+                    onLoadSuccess={onDocumentLoadSuccess}
+                    loading={
+                      <div className="flex items-center justify-center p-20">
+                        <div className="text-white text-lg">Loading document...</div>
+                      </div>
+                    }
+                    error={
+                      <div className="flex items-center justify-center p-20">
+                        <div className="text-red-400 text-lg">
+                          Failed to load PDF. Please try downloading instead.
+                        </div>
+                      </div>
+                    }
+                  >
+                    <Page
+                      pageNumber={pageNumber}
+                      scale={scale}
+                      className="shadow-2xl page-flip-enter"
+                      renderTextLayer
+                      renderAnnotationLayer
+                    />
+                  </Document>
+                </div>
+              ) : (
+                // Fallback for server-side render
+                <div className="text-slate-400 text-center">Loading viewer...</div>
+              )}
             </div>
+
 
             {/* Navigation Controls */}
             <div className="bg-slate-900 text-white px-6 py-4 flex items-center justify-center gap-6 border-t border-white/10">
